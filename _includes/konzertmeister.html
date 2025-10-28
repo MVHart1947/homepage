@@ -1,0 +1,5 @@
+<div class="wrapper-rounded">
+    <h3>Anstehende Termine</h3>
+    <hr>
+    <iframe id="km-list-frame" style="display:block;box-sizing:border-box;width:100%;border:none;" src="https://rest.konzertmeister.app/api/v3/org/OALS_4a064e3e-6a35-40ad-89e2-c9d855559e6e/upcomingappointments?types=2&showDescription=false&onlyPublicsite=false&limit=5&display=light&lang=de&hash=5a36eedb2ff2b05aa3124a1dfc208dc86559dcf0e5e7267c67ffa8a16f29c1ce"></iframe><script>window.addEventListener('message', function(event) { var frame = document.getElementById('km-list-frame'); if (event && event.data && event.data['kmAppointmentListHeight'] && typeof event.data['kmAppointmentListHeight'] === 'number' && frame) { var borderWidth = isNaN(frame.style.borderWidth.replace('px', '')) ? 0 : parseInt(frame.style.borderWidth.replace('px', ''), 10);document.getElementById('km-list-frame').style.height = event.data['kmAppointmentListHeight'] + 2 * borderWidth + 'px';}});</script>
+</div>

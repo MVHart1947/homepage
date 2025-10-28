@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "de-DE" }}">
+<html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {% include header.html %}
   </head>
   <body>
-    {{ content }}
+    {% include navigation.html %}
+    <!-- Content -->
+    <div class="wrapper">
+      <h2>{{ page.title }}</h2>
+      <hr>
+      {{ content }}
+      <hr>
+      {% include footer.html %}
+    </div>
+    <!-- Content End -->
+    <script type="text/javascript" src="/assets/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/salvattore.js"></script>
+    <script type="text/javascript" src="/assets/js/fontawesome.min.js"></script>
   </body>
 </html>
