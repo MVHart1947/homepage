@@ -7,7 +7,6 @@ $bodyColor: #000000;
 
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
-
 body {
   font-family: $bodyFont !important; 
 }
@@ -27,84 +26,13 @@ p {
   hyphens: auto;
 }
 
-.wrapper {
-  background: #f9f9f9;
-  max-width: 90em;
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  padding: 1em 2em;
-}
-
-.wrapper-rounded {
-  background: white;
-  border-radius: 4px;
-  max-width: 90em;
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  padding: 1em 2em;
-}
-
-.shadow {
--webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-}
-
-.btn{
-white-space:normal !important;
-}
-
-.control-label {
-margin-top: 0px !important;
-}
-
-.nav-pills > .active > a, .nav-pills > .active > a:hover {
-  background-color: #03a9f4 !important;
-}
-
-/* Footerstyles */
-
-.footernav ul {
-margin: 0;
-padding: 0;
-list-style-type: none;
-text-align: left;
-}
-.footernav ul li {
-display: block;
-}
-.footernav ul li.active a {
-background: #f5f5f5;
-border-bottom-right-radius: 3px;
-border-bottom-left-radius: 3px;
-border-top-right-radius: 3px;
-border-top-left-radius: 3px;
-}
-.footernav ul li a {
-text-decoration: none;
-padding: .2em 1em;
-font-size: 11px;
-}
-.footernav ul li a:hover {
-background-color: #fcfcfc;
-border-bottom-right-radius: 3px;
-border-bottom-left-radius: 3px;
-border-top-right-radius: 3px;
-border-top-left-radius: 3px;
+.card {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px 0px !important;
 }
 
 #footer {
   background-color: #eeeeee;
   padding: 1em;
-}
-
-.footerlogo {
-  float: left;
-  max-width: 100%;
 }
 
 #FilesDiv {
@@ -113,61 +41,18 @@ border-top-left-radius: 3px;
 
 /* Salvattore Styles */
 @media screen and (max-width: 480px){
-
-.wrapper-rounded {
-    background: white;
-    border-radius: 4px;
-    max-width: 90em;
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
-    padding: .5em 1em;
-}
 #grid[data-columns]::before {
   content: '1 .column.size-1of1';
 }
-.footerlogo {
-    display: block;
-      margin: 0 auto;
-      float: none;
-  }
-  .footernav ul {
-      text-align: center;
-  }
-  .footernav ul li {
-      display: block;
-  }
-  .footernav ul li a {
-      font-size: 12px;
-  }
 }
-
 @media screen and (min-width: 481px) and (max-width: 768px) {
 #grid[data-columns]::before {
   content: '2 .column.size-1of2';
 }
-.footerlogo {
-    display: block;
-      margin: 0 auto;
-      float: none;
-  }
-  .footernav ul {
-      text-align: center;
-  }
-  .footernav ul li {
-      display: block;
-  }
-  .footernav ul li a {
-      font-size: 12px;
-  }
 }
 @media screen and (min-width: 769px) {
 #grid[data-columns]::before {
   content: '3 .column.size-1of3';
-}
-.navbar-right {
-    margin-right: 0
 }
 }
 
@@ -177,14 +62,6 @@ border-top-left-radius: 3px;
 .size-1of2 {  width: 50%; }
 .size-1of3 {  width: 33.333%; }
 .item { padding: .5em; }
-
-.back-to-top {
-position: fixed;
-bottom: 20px;
-right: 20px;
-padding: 1em;
-z-index: 1000000;
-}
 
 /* Font Awesome Styles */
 /* Style all font awesome icons */
