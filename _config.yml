@@ -1,4 +1,4 @@
-url: "https://newhp.musikverein-hart.de" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.musikverein-hart.de" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "Musikverein Hart e.V." # the name of your site, e.g. ACME Corp.
 description: "Website des Musikverein Hart e.V."
