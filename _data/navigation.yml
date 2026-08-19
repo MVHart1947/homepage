@@ -1,0 +1,13 @@
+# Hauptnavigation (_includes/navigation.html). Reihenfolge = Anzeigereihenfolge.
+- titel: "Die Kapelle"
+  url: "/mitglieder.html"
+- titel: "Die Vorstandschaft"
+  url: "/vorstandschaft.html"
+- titel: "Jugend"
+  url: "/jugend.html"
+- titel: "Historie"
+  url: "/historie.html"
+- titel: "Partner"
+  url: "/partnerkapelle.html"
+- titel: "Downloads"
+  url: "/downloads.html"

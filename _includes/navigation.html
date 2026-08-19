@@ -11,25 +11,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-underline d-flex">
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/mitglieder.html' %}active{% endif %}" aria-current="{%if page.url == '/mitglieder.html' %}page{% endif %}" href="{% link mitglieder.html %}">Die Kapelle</a>
+                {% for item in site.data.navigation %}<li class="nav-item">
+                    <a class="nav-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/vorstandschaft.html' %}active{% endif %}" aria-current="{%if page.url == '/vorstandschaft.html' %}page{% endif %}" href="{% link vorstandschaft.html %}">Die Vorstandschaft</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/jugend.html' %}active{% endif %}" aria-current="{%if page.url == '/jugend.html' %}page{% endif %}" href="{% link jugend.html %}">Jugend</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/historie.html' %}active{% endif %}" aria-current="{%if page.url == '/historie.html' %}page{% endif %}" href="{% link historie.html %}">Historie</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/partnerkapelle.html' %}active{% endif %}" aria-current="{%if page.url == '/partnerkapelle.html' %}page{% endif %}" href="{% link partnerkapelle.html %}">Partner</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/downloads.html' %}active{% endif %}" aria-current="{%if page.url == '/downloads.html' %}page{% endif %}" href="{% link downloads.html %}">Downloads</a>
-                </li>
-            </ul>
+                {% endfor %}</ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>

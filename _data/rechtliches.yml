@@ -1,0 +1,7 @@
+# Footer-Navigation (_includes/footer.html). Reihenfolge = Anzeigereihenfolge.
+- titel: "Impressum"
+  url: "/impressum.html"
+- titel: "Kontakt"
+  url: "/kontakt.html"
+- titel: "Datenschutz"
+  url: "/datenschutz.html"

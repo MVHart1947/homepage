@@ -1,0 +1,98 @@
+# Einzige Quelle für die Mitglieder je Register/Instrument, genutzt von
+# mitglieder.html (via _includes/register-card.html). Reihenfolge = Anzeige-
+# reihenfolge auf der Seite.
+- instrument: "Dirigent"
+  bild: "/assets/media/register/dirigent.jpg"
+  breite: 126
+  hoehe: 170
+  personen:
+    - Johannes Schuler
+- instrument: "Flöte"
+  bild: "/assets/media/register/07_floete.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Lisa-Marie Heck
+    - Tabea Fechter
+    - Julia Biesinger
+    - Sarah Junker
+    - Nicole Weckerle
+- instrument: "Klarinette"
+  bild: "/assets/media/register/08_Klarinette.webp"
+  breite: 1200
+  hoehe: 800
+  personen:
+    - Claudia Klingler
+    - Egidius Klingler
+    - Corinna Stehle-Tömmes
+    - Gertrud Weiß
+    - Katja Weckerle
+    - Katja Beiter
+    - Joanna Mindreanu
+    - Nina Hermanutz
+    - Eva-Maria Wendelstein
+    - Katharina Schneider
+- instrument: "Saxophon"
+  bild: "/assets/media/register/09_Saxos.webp"
+  breite: 1127
+  hoehe: 708
+  personen:
+    - Hubert Fechter
+    - Tanja Fechter
+    - Lisa Rapp
+    - Rosi Maier
+    - Simone Grimm
+    - Clara Helmich
+    - Philipp Weißhaar
+    - Nadine Sever
+- instrument: "Trompete & Flügelhorn"
+  bild: "/assets/media/register/11_Trompeten.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Dieter Klingler
+    - Chris Reger
+    - Sabrina Konsdorf
+    - Harald Stocker
+    - Jan Klingler
+    - Tobias Schweizer
+    - Markus Klingler
+    - Florian Klingler
+- instrument: "Tenorhorn & Bariton"
+  bild: "/assets/media/register/12_Tenorhorn.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Wolfgang Fechter
+    - Markus Bieger
+    - Egidius Wild
+    - Thomas Edelmann
+- instrument: "Posaune"
+  bild: "/assets/media/register/13_Posaune.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Hubert Kessler
+    - Marc Göppel
+    - Moritz Klingler
+- instrument: "Horn"
+  bild: "/assets/media/register/10_Horn.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Mathias Kessler
+    - Philipp Kessler
+- instrument: "Schlagzeug"
+  bild: "/assets/media/register/14_Schlagzeug.webp"
+  breite: 800
+  hoehe: 1200
+  personen:
+    - Martin Hermanutz
+    - Simon Mesam
+- instrument: "Bass"
+  bild: "/assets/media/register/bass.jpg"
+  breite: 137
+  hoehe: 171
+  personen:
+    - Egidius Kessler
+    - Ingo Bisinger

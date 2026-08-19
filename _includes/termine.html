@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+    <h3 class="card-title">Anstehende Termine</h3>
+    <hr>
+    {% if site.data.termine.size > 0 %}
+        <ul class="list-group list-group-flush">
+        {% for termin in site.data.termine limit:5 %}
+            <li class="list-group-item">
+                <div class="fw-semibold">
+                    {{ termin.wochentag_kurz }}, {{ termin.tag }}. {{ termin.monat_kurz }} {{ termin.jahr }}
+                    {%- unless termin.zeit_unbekannt -%}
+                        , {{ termin.uhrzeit_start }}{% if termin.uhrzeit_ende and termin.uhrzeit_ende != termin.uhrzeit_start %}–{{ termin.uhrzeit_ende }}{% endif %} Uhr
+                    {%- endunless %}
+                </div>
+                <div>{{ termin.titel }}</div>
+                {% if termin.ort != "" %}
+                    <div class="text-muted">{{ termin.ort }}</div>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="mb-0">Aktuell sind keine Termine geplant – schaut bald wieder vorbei.</p>
+    {% endif %}
+    </div>
+</div>

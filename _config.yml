@@ -2,5 +2,38 @@ url: "https://www.musikverein-hart.de" # the base hostname & protocol for your s
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "Musikverein Hart e.V." # the name of your site, e.g. ACME Corp.
 description: "Website des Musikverein Hart e.V."
+
+# ----------------------------------------------------------------
+# Vereinskontakt (u.a. im Impressum genutzt)
+# ----------------------------------------------------------------
+contact:
+  organisation: "Musikverein Hart e.V."
+  address_line1: "Tannwaldstraße 16"
+  address_line2: "72401 Haigerloch"
+  email: "info@musikverein-hart.de"
+  # Vorstandsnamen kommen aus _data/vorstandschaft.yml (siehe impressum.html)
+
+# ----------------------------------------------------------------
+# Sass / Bootstrap
+# ----------------------------------------------------------------
 sass:
-    sass_dir: _sass
+  style: compressed
+  load_paths:
+    - _sass
+  # Unterdrückt Deprecation-Warnungen aus Abhängigkeiten (z.B. der
+  # Bootstrap-Gem) – Warnungen aus eigenem _sass/-Code werden weiterhin
+  # angezeigt.
+  quiet_deps: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - script
