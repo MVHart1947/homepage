@@ -77,9 +77,10 @@ header: Ausbildungskonzept – Nachwuchsförderung
             <div class="card-body">
         <h3 class="card-title">4. Ansprechpartner</h3>
         <hr>
-        {% assign jugendleitung = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
-        <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung.personen | join: " und " }} unter folgenden Kontaktdaten:<br><br>
-        <a href="mailto:{{ jugendleitung.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung.email }}</a>
+        {% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
+        {% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
+        <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung | map: "name" | join: " und " }} unter folgenden Kontaktdaten:<br><br>
+        <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung_rolle.email }}</a>
         </p>
         </div>
         </div>

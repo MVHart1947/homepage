@@ -10,8 +10,10 @@ header: Die Vorstandschaft
         </div>
         <div class="col-lg-4">
             <div class="card-body">
-                {% for eintrag in site.data.vorstandschaft %}<h6 class="card-subtitle mb-2 text-body-secondary">{{ eintrag.rolle }}</h6>
-                <p class="card-text">{{ eintrag.personen | join: eintrag.trennzeichen }}</p>
+                {% for eintrag in site.data.vorstandschaft %}
+                {% assign traeger = site.data.mitglieder | where_exp: "m", "m.rollen contains eintrag.id" %}
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ eintrag.rolle }}</h6>
+                <p class="card-text">{% for person in traeger %}{{ person.name }}{% unless forloop.last %}{{ eintrag.trennzeichen }}{% endunless %}{% endfor %}</p>
                 {% unless forloop.last %}<hr>
                 {% endunless %}{% endfor %}
             </div>
