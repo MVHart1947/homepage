@@ -12,16 +12,12 @@ header: Impressum
 E-Mail: {{ site.contact.email | replace: "@", "(at)" }}
 </address>
 
-{% assign vorsitzende_1 = site.data.vorstandschaft | where: "id", "vorsitzende-1" | first %}
-{% assign vorsitzende_2 = site.data.vorstandschaft | where: "id", "vorsitzende-2" | first %}
-{% assign vorsitzende = vorsitzende_1.personen | concat: vorsitzende_2.personen %}
+{% assign vorsitzende_1 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-1'" %}
+{% assign vorsitzende_2 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-2'" %}
+{% assign vorsitzende = vorsitzende_1 | concat: vorsitzende_2 %}
 <p><strong>Vertretungsberechtigte 1. Vorstände:</strong><br />
-{% for name in vorsitzende %}<span>{{ name }}</span><br />
+{% for person in vorsitzende %}<span>{{ person.name }}</span><br />
 {% endfor %}<span>Anschrift siehe Vereinanschrift</span></p>
-
-<!--<p><strong>Gestaltung Webauftritt</strong><br>
-<a href="https://www.makeitsystems.de" target="_blank" rel="noopener">makeITsystems</a>
-</p>-->
 
 <h3>Haftungsausschluss (Disclaimer)</h3>
 

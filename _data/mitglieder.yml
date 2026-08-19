@@ -1,0 +1,116 @@
+# Einzige Quelle für alle Vereinsmitglieder: Name, Register/Instrument und
+# – falls zutreffend – die Ämter (siehe _data/vorstandschaft.yml für die
+# Rollen-IDs). Ein Name/Register/Amt wird nur hier gepflegt:
+#
+# - mitglieder.html (via _includes/register-card.html) gruppiert nach
+#   "register" (Metadaten wie Foto/Größe je Register in _data/register.yml).
+# - vorstandschaft.html, kontakt.html, impressum.html und jugend.html
+#   filtern nach "rollen" (Rollen-Metadaten wie Anzeigetext/E-Mail in
+#   _data/vorstandschaft.yml).
+#
+# Reihenfolge = Anzeigereihenfolge je Register UND je Rolle (z.B. Ausschuss
+# erscheint in der Reihenfolge, in der die Mitglieder hier stehen).
+- name: Johannes Schuler
+  register: "Dirigent"
+  rollen: [dirigent]
+- name: Lisa-Marie Heck
+  register: "Flöte"
+  rollen: [ausschuss]
+- name: Tabea Fechter
+  register: "Flöte"
+- name: Julia Biesinger
+  register: "Flöte"
+  rollen: [vorsitzender-1]
+- name: Sarah Junker
+  register: "Flöte"
+  rollen: [schriftfuehrer]
+- name: Nicole Weckerle
+  register: "Flöte"
+- name: Claudia Klingler
+  register: "Klarinette"
+- name: Egidius Klingler
+  register: "Klarinette"
+- name: Corinna Stehle-Tömmes
+  register: "Klarinette"
+- name: Gertrud Weiß
+  register: "Klarinette"
+- name: Katja Weckerle
+  register: "Klarinette"
+  rollen: [jugendleitung]
+- name: Katja Beiter
+  register: "Klarinette"
+- name: Joanna Mindreanu
+  register: "Klarinette"
+- name: Nina Hermanutz
+  register: "Klarinette"
+- name: Eva-Maria Wendelstein
+  register: "Klarinette"
+- name: Katharina Schneider
+  register: "Klarinette"
+- name: Hubert Fechter
+  register: "Saxophon"
+  rollen: [ausschuss]
+- name: Tanja Fechter
+  register: "Saxophon"
+  rollen: [vorsitzender-2]
+- name: Lisa Rapp
+  register: "Saxophon"
+- name: Rosi Maier
+  register: "Saxophon"
+- name: Simone Grimm
+  register: "Saxophon"
+- name: Clara Helmich
+  register: "Saxophon"
+  rollen: [ausschuss]
+- name: Philipp Weißhaar
+  register: "Saxophon"
+- name: Nadine Sever
+  register: "Saxophon"
+- name: Dieter Klingler
+  register: "Trompete & Flügelhorn"
+  rollen: [ausschuss]
+- name: Chris Reger
+  register: "Trompete & Flügelhorn"
+  rollen: [ausschuss]
+- name: Sabrina Konsdorf
+  register: "Trompete & Flügelhorn"
+  rollen: [jugendleitung]
+- name: Harald Stocker
+  register: "Trompete & Flügelhorn"
+- name: Jan Klingler
+  register: "Trompete & Flügelhorn"
+- name: Tobias Schweizer
+  register: "Trompete & Flügelhorn"
+- name: Markus Klingler
+  register: "Trompete & Flügelhorn"
+- name: Florian Klingler
+  register: "Trompete & Flügelhorn"
+  rollen: [ausschuss]
+- name: Wolfgang Fechter
+  register: "Tenorhorn & Bariton"
+- name: Markus Bieger
+  register: "Tenorhorn & Bariton"
+- name: Egidius Wild
+  register: "Tenorhorn & Bariton"
+- name: Thomas Edelmann
+  register: "Tenorhorn & Bariton"
+- name: Hubert Kessler
+  register: "Posaune"
+- name: Marc Göppel
+  register: "Posaune"
+- name: Moritz Klingler
+  register: "Posaune"
+- name: Mathias Kessler
+  register: "Horn"
+  rollen: [vorsitzender-1]
+- name: Philipp Kessler
+  register: "Horn"
+  rollen: [kassier]
+- name: Martin Hermanutz
+  register: "Schlagzeug"
+- name: Simon Mesam
+  register: "Schlagzeug"
+- name: Egidius Kessler
+  register: "Bass"
+- name: Ingo Bisinger
+  register: "Bass"

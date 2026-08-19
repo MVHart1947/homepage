@@ -38,6 +38,30 @@ p {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px 0px !important;
 }
 
+// Datumsbox für die "Anstehende Termine"-Liste, angelehnt an die farbige
+// Wochentags-Box aus dem bisherigen Konzertmeister-iframe-Widget.
+.termin-datum {
+  width: 3.25rem;
+  padding: .3rem 0;
+  border-radius: var(--bs-border-radius);
+  background-color: $primary;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.termin-datum-wochentag,
+.termin-datum-monat {
+  font-size: .65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+.termin-datum-tag {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
 #footer {
   background-color: #eeeeee;
   padding: 1em;

@@ -3,11 +3,15 @@ layout: default
 title: Kontakt
 header: Kontakt
 ---
-{% assign vorsitzende_1 = site.data.vorstandschaft | where: "id", "vorsitzende-1" | first %}
-{% assign vorsitzende_2 = site.data.vorstandschaft | where: "id", "vorsitzende-2" | first %}
-{% assign vorsitzende = vorsitzende_1.personen | concat: vorsitzende_2.personen %}
-{% assign jugendleitung = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
-{% assign schriftfuehrerin = site.data.vorstandschaft | where: "id", "schriftfuehrerin" | first %}
+{% assign vorsitzender_1_rolle = site.data.vorstandschaft | where: "id", "vorsitzender-1" | first %}
+{% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
+{% assign schriftfuehrer_rolle = site.data.vorstandschaft | where: "id", "schriftfuehrer" | first %}
+
+{% assign vorsitzende_1 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-1'" %}
+{% assign vorsitzende_2 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-2'" %}
+{% assign vorsitzende = vorsitzende_1 | concat: vorsitzende_2 %}
+{% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
+{% assign schriftfuehrerin = site.data.mitglieder | where_exp: "m", "m.rollen contains 'schriftfuehrer'" %}
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
         <div class="card">
@@ -15,11 +19,11 @@ header: Kontakt
                 <h5 class="card-title">Vorsitzende</h5>
             </div>
             <ul class="list-group list-group-flush">
-                {% for person in vorsitzende %}<li class="list-group-item">{{ person }}</li>
+                {% for person in vorsitzende %}<li class="list-group-item">{{ person.name }}</li>
                 {% endfor %}</ul>
             <div class="card-footer">
                 <div class="d-grid gap-2">
-                    <a href="mailto:{{ vorsitzende_1.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                    <a href="mailto:{{ vorsitzender_1_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
                 </div>
             </div>
         </div>
@@ -30,11 +34,11 @@ header: Kontakt
                 <h5 class="card-title">Jugendleiter</h5>
             </div>
             <ul class="list-group list-group-flush">
-                {% for person in jugendleitung.personen %}<li class="list-group-item">{{ person }}</li>
+                {% for person in jugendleitung %}<li class="list-group-item">{{ person.name }}</li>
                 {% endfor %}</ul>
             <div class="card-footer">
                 <div class="d-grid gap-2">
-                    <a href="mailto:{{ jugendleitung.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                    <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
                 </div>
             </div>
         </div>
@@ -42,14 +46,14 @@ header: Kontakt
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Schriftführerin</h5>
+                <h5 class="card-title">Schriftführer</h5>
             </div>
             <ul class="list-group list-group-flush">
-                {% for person in schriftfuehrerin.personen %}<li class="list-group-item">{{ person }}</li>
+                {% for person in schriftfuehrerin %}<li class="list-group-item">{{ person.name }}</li>
                 {% endfor %}</ul>
             <div class="card-footer">
                 <div class="d-grid gap-2">
-                    <a href="mailto:{{ schriftfuehrerin.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                    <a href="mailto:{{ schriftfuehrer_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
                 </div>
             </div>
         </div>
