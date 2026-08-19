@@ -1,0 +1,45 @@
+name: Release
+
+# Erstellt bei jedem Push nach main (i.d.R. ein Merge aus develop/release-*)
+# automatisch einen neuen Git-Tag + GitHub-Release nach dem Schema
+# YYYY.M.VERSION (z.B. 2026.8.1) – VERSION zählt pro Kalendermonat neu ab 1
+# hoch. Schließt an das bestehende Tag-Schema dieses Repos an (z.B. 2026.7.1).
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (inkl. Tags)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Nächste Versionsnummer ermitteln
+        id: version
+        run: |
+          YEAR_MONTH=$(date -u +"%Y.%-m")
+          LAST=$(git tag -l "${YEAR_MONTH}.*" | sed "s/^${YEAR_MONTH}\.//" | sort -n | tail -1)
+          NEXT=$(( ${LAST:-0} + 1 ))
+          VERSION="${YEAR_MONTH}.${NEXT}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Neue Version: ${VERSION}"
+
+      - name: Tag erstellen und pushen
+        run: |
+          git tag "${{ steps.version.outputs.version }}"
+          git push origin "${{ steps.version.outputs.version }}"
+
+      - name: GitHub Release erstellen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.version }}" \
+            --title "${{ steps.version.outputs.version }}" \
+            --generate-notes

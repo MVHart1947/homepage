@@ -1,0 +1,10 @@
+---
+layout: default
+title: Datenschutz
+header: Datenschutz
+---
+<div class="container-fluid">
+    <section class="imprint" id="grid" data-columns>
+      {% for abschnitt in site.data.datenschutz %}{% include legal-section.html abschnitt=abschnitt %}
+      {% endfor %}</section>
+</div>

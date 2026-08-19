@@ -28,7 +28,7 @@ header: Ausbildungskonzept – Nachwuchsförderung
         <hr>
         <p>Nachfolgend eine schematische Darstellung über die verschiedenen Phasen der musikalischen Ausbildung im Musikverein Hart.</p>
         <p>Die angegebenen Altersangaben dienen hier lediglich zur Orientierung!</p>
-        <img class="img-thumbnail" src="assets/media/Jugend.jpg"><br><br>
+        <img class="img-thumbnail" src="assets/media/Jugend.jpg" loading="lazy" decoding="async" width="454" height="255"><br><br>
         <p>Mit unserem Ausbildungskonzept möchten wir Kindern ab 3 Jahren die Möglichkeit bieten, ein Instrument zu erlernen und in der Gruppe die Freude an der Musik zu entdecken.</p>
         <p>Bereits ab einem Alter von 3 Jahren können Kinder im Rahmen der <strong>musikalischen Früherziehung</strong> mit spielerischen Systemen den Grundstein für die Musik legen.</p>
         <p>Mit dem Erlernen der <strong>Blockflöte</strong> werden die ersten musikalischen Kompetenzen wie das Notenlesen und rhythmische Gestaltung von einfachen  Musikstücken erworben. Der Unterricht wird wahlweise/parallel beim Musikverein Hart unter der Leitung von Jungmusikern oder/und an der Grundschule in Haigerloch während der 1. und 2. Klasse angeboten.</p>
@@ -77,8 +77,9 @@ header: Ausbildungskonzept – Nachwuchsförderung
             <div class="card-body">
         <h3 class="card-title">4. Ansprechpartner</h3>
         <hr>
-        <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterin Sabrina Konsdorf unter folgenden Kontaktdaten:<br><br>
-        <a href="mailto:jugendleiter@musikverein-hart.de" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> jugendleiter@musikverein-hart.de</a>
+        {% assign jugendleitung = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
+        <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung.personen | join: " und " }} unter folgenden Kontaktdaten:<br><br>
+        <a href="mailto:{{ jugendleitung.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung.email }}</a>
         </p>
         </div>
         </div>

@@ -1,5 +1,13 @@
 $bodyColor: #000000;
 
+// Bilder haben width/height-Attribute (für CLS-freies Lazy-Loading), aber
+// z.B. Bootstraps .card-img-top setzt nur width:100% ohne height:auto.
+// Ohne diese Regel würden Bilder auf ihre feste Attribut-Höhe gestreckt/
+// gestaucht statt im Seitenverhältnis zu skalieren.
+img {
+  height: auto;
+}
+
 @font-face {
   font-family: 'TrajanProRegular';
   src: url('/assets/fonts/TrajanPro-Regular.ttf') format('truetype');

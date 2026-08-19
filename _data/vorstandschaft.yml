@@ -1,0 +1,49 @@
+# Einzige Quelle für Vorstands-/Funktionsträger-Namen. Wird u.a. genutzt von
+# vorstandschaft.html, kontakt.html, impressum.html und jugend.html
+# – Namen hier ändern reicht, damit sie überall aktuell sind.
+- id: vorsitzende-1
+  rolle: "1. Vorsitzenden:"
+  trennzeichen: "<br>"
+  email: "vorstand@musikverein-hart.de"
+  personen:
+    - Julia Biesinger
+    - Mathias Kessler
+- id: vorsitzende-2
+  rolle: "2. Vorsitzende:"
+  trennzeichen: "<br>"
+  personen:
+    - Tanja Fechter
+- id: kassier
+  rolle: "Kassier:"
+  trennzeichen: "<br>"
+  personen:
+    - Philipp Kessler
+- id: schriftfuehrerin
+  rolle: "Schriftführerin:"
+  email: "schriftfuehrer@musikverein-hart.de"
+  trennzeichen: "<br>"
+  personen:
+    - Sarah Junker
+- id: dirigent
+  rolle: "Dirigent:"
+  trennzeichen: "<br>"
+  personen:
+    - Johannes Schuler
+- id: jugendleitung
+  rolle: "Jugendleiterinen:"
+  trennzeichen: "<br>"
+  email: "jugendleiter@musikverein-hart.de"
+  personen:
+    - Sabrina Konsdorf
+    - Katja Weckerle
+- id: ausschuss
+  rolle: "Ausschuss"
+  trennzeichen: ", "
+  personen:
+    - Hubert Fechter
+    - Florian Klingler
+    - Dieter Klinger
+    - Philipp Kessler
+    - Clara Helmich
+    - Lisa-Marie Heck
+    - Chris Reger

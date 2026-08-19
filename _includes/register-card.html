@@ -1,0 +1,11 @@
+<div class="item">
+  <div class="card">
+    <img src="{{ include.gruppe.bild }}" class="card-img-top" loading="lazy" decoding="async" width="{{ include.gruppe.breite }}" height="{{ include.gruppe.hoehe }}">
+    <div class="card-body">
+      <h3 class="card-title">{{ include.gruppe.instrument }}</h3>
+      <ul class="list-group list-group-flush">
+        {% for person in include.gruppe.personen %}<li class="list-group-item">{{ person }}</li>
+        {% endfor %}</ul>
+    </div>
+  </div>
+</div>

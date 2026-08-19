@@ -1,0 +1,57 @@
+---
+layout: default
+title: Kontakt
+header: Kontakt
+---
+{% assign vorsitzende_1 = site.data.vorstandschaft | where: "id", "vorsitzende-1" | first %}
+{% assign vorsitzende_2 = site.data.vorstandschaft | where: "id", "vorsitzende-2" | first %}
+{% assign vorsitzende = vorsitzende_1.personen | concat: vorsitzende_2.personen %}
+{% assign jugendleitung = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
+{% assign schriftfuehrerin = site.data.vorstandschaft | where: "id", "schriftfuehrerin" | first %}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vorsitzende</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for person in vorsitzende %}<li class="list-group-item">{{ person }}</li>
+                {% endfor %}</ul>
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <a href="mailto:{{ vorsitzende_1.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Jugendleiter</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for person in jugendleitung.personen %}<li class="list-group-item">{{ person }}</li>
+                {% endfor %}</ul>
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <a href="mailto:{{ jugendleitung.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Schriftführerin</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for person in schriftfuehrerin.personen %}<li class="list-group-item">{{ person }}</li>
+                {% endfor %}</ul>
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <a href="mailto:{{ schriftfuehrerin.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
