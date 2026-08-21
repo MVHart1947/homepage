@@ -11,6 +11,7 @@ Jekyll-based static website for Musikverein Hart e.V. (a German brass band assoc
 ```bash
 bundle install                    # install gems (first-time setup)
 bundle exec jekyll serve          # local dev server at http://127.0.0.1:4000
+bundle exec jekyll serve --livereload         # local dev server at http://127.0.0.1:4000 for continuuse use, except when changing _config.yml
 bundle exec jekyll build          # production-style build into ./_site
 JEKYLL_ENV=production bundle exec jekyll build   # build with production env (matches CI)
 ```
