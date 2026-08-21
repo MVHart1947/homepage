@@ -14,6 +14,14 @@ contact:
   # Vorstandsnamen kommen aus _data/vorstandschaft.yml (siehe impressum.html)
 
 # ----------------------------------------------------------------
+# Social-Media-Links (u.a. im Footer genutzt, siehe _includes/footer.html)
+# ----------------------------------------------------------------
+social:
+  facebook: "https://www.facebook.com/people/Musikverein-Hart-eV/100066495306368/"
+  instagram: "https://www.instagram.com/musikverein_hart/"
+  github: "https://github.com/MVHart1947/homepage"
+
+# ----------------------------------------------------------------
 # Sass / Bootstrap
 # ----------------------------------------------------------------
 sass:
