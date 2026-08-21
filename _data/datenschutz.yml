@@ -1,16 +1,20 @@
 # Einzige Quelle für die Abschnitte der Datenschutzerklärung, gerendert von
 # datenschutz.html über _includes/legal-section.html. Reihenfolge =
-# Anzeigereihenfolge auf der Seite.
+# Anzeigereihenfolge auf der Seite. icon = Font-Awesome-Solid-Klasse (siehe
+# _plugins/font_awesome_sass_paths.rb).
 - titel: "Datenschutz"
+  icon: "fa-shield-halved"
   inhalt: |
     <p class="card-text">Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerkl&auml;rung.</p>
     <p class="card-text">Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten m&ouml;glich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit m&ouml;glich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdr&uuml;ckliche Zustimmung nicht an Dritte weitergegeben.</p>
     <p class="card-text">Wir weisen darauf hin, dass die Daten&uuml;bertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitsl&uuml;cken aufweisen kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m&ouml;glich.</p>
 - titel: "Hosting"
+  icon: "fa-server"
   inhalt: |
     <p class="card-text">Diese Website wird bei GitHub Pages gehostet, einem Angebot der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Ein direkter Vertrag zwischen Ihnen und GitHub kommt dabei nicht zustande.</p>
     <p class="card-text">Beim Aufruf unserer Website verarbeitet GitHub Pages automatisch die in Server-Log-Files erfassten Daten (siehe Abschnitt &bdquo;Server-Logs&ldquo;), um die Website technisch auszuliefern. Weitere Informationen zum Umgang mit personenbezogenen Daten durch GitHub finden Sie in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerkl&auml;rung von GitHub</a>.</p>
 - titel: "Server-Logs"
+  icon: "fa-file-lines"
   inhalt: |
     <p class="card-text">Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns &uuml;bermittelt. Dies sind:</p>
     <ul class="list-group list-group-flush">
@@ -23,14 +27,17 @@
     <br>
     <p class="card-text">Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenf&uuml;hrung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachtr&auml;glich zu pr&uuml;fen, wenn uns konkrete Anhaltspunkte f&uuml;r eine rechtswidrige Nutzung bekannt werden.</p>
 - titel: "Recht auf Auskunft, L&ouml;schung, Sperrung"
+  icon: "fa-user-shield"
   inhalt: |
     <p class="card-text">Sie haben jederzeit das Recht auf unentgeltliche Auskunft &uuml;ber Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empf&auml;nger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder L&ouml;schung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten k&ouml;nnen Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
 - titel: "Widerspruch Werbe-Mails"
+  icon: "fa-envelopes-bulk"
   inhalt: |
     <p class="card-text">
       Der Nutzung von im Rahmen der Impressumspflicht ver&ouml;ffentlichten Kontaktdaten zur &Uuml;bersendung von nicht ausdr&uuml;cklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdr&uuml;cklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.
     </p>
 - titel: "SSL- Verschl&uuml;sselung"
+  icon: "fa-lock"
   inhalt: |
     <p class="card-text">Diese Seite nutzt aus Gr&uuml;nden der Sicherheit und zum Schutz der &Uuml;bertragung vertraulicher Inhalte, wie zum Beispiel der Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-Verschl&uuml;sselung. Eine verschl&uuml;sselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von &quot;http://&quot; auf &quot;https://&quot; wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
     <p class="card-text">Wenn die SSL Verschl&uuml;sselung aktiviert ist, k&ouml;nnen die Daten, die Sie an uns &uuml;bermitteln, nicht von Dritten mitgelesen werden.</p>
