@@ -130,6 +130,13 @@ p {
   font-size: .875rem;
 }
 
+// Begrenzt die Social-Media-Buttons im Footer auf eine schlanke Breite,
+// statt sie über die volle Footer-Breite zu strecken (.fa-btn setzt
+// width: 100% !important auf ihre .col-Eltern).
+.footer-social {
+  max-width: 220px;
+}
+
 .footer-link {
   color: $secondary;
   text-decoration: none;
