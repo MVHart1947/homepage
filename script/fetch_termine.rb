@@ -90,9 +90,23 @@ def local_time(iso_string, timezone_id)
   timezone.utc_to_local(Time.iso8601(iso_string).utc)
 end
 
+# Konzertmeisters "formattedAddress" enthält je nach Eingabe-Präzision mal die
+# Straße, mal einen Ortsteil, mal das Bundesland (uneinheitlich formatiert).
+# Für die Website reichen PLZ + Ort – die genaue Adresse sehen die Musiker:innen
+# ohnehin über die Konzertmeister-App.
+PLZ_ORT_PATTERN = /(?<plz>\d{5})\s+(?<ort>[^,]+)/
+
+def plz_und_ort(formatted_address)
+  match = PLZ_ORT_PATTERN.match(formatted_address)
+  return ["", formatted_address] unless match
+
+  [match[:plz], match[:ort].strip]
+end
+
 def to_termin(appointment)
   location = appointment["location"] || {}
-  ort = location["formattedAddress"] || location["name"] || ""
+  adresse = location["formattedAddress"] || location["name"] || ""
+  plz, ort = plz_und_ort(adresse)
   timezone_id = appointment["timezoneId"] || DEFAULT_TIMEZONE
 
   start_local = local_time(appointment["start"], timezone_id)
@@ -102,6 +116,7 @@ def to_termin(appointment)
     "titel" => appointment["name"],
     "beschreibung" => appointment["description"] || "",
     "ort" => ort,
+    "ort_plz" => plz,
     "start" => appointment["start"],
     "wochentag_kurz" => WOCHENTAGE_KURZ[start_local.wday],
     "wochentag_lang" => WOCHENTAGE_LANG[start_local.wday],
