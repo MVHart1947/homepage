@@ -1,34 +1,41 @@
-<div class="card">
-    <div class="card-body">
-    <h3 class="card-title">Anstehende Termine</h3>
-    <hr>
-    {% if site.data.termine.size > 0 %}
-        <ul class="list-group list-group-flush">
-        {% for termin in site.data.termine limit:5 %}
-            <li class="list-group-item">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="termin-datum text-center flex-shrink-0">
-                        <div class="termin-datum-wochentag">{{ termin.wochentag_kurz }}</div>
-                        <div class="termin-datum-tag">{{ termin.tag }}</div>
-                        <div class="termin-datum-monat">{{ termin.monat_kurz }}</div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <div class="d-flex align-items-start justify-content-between gap-2">
-                            <div class="fw-semibold">{{ termin.titel }}</div>
-                            {% unless termin.zeit_unbekannt %}
-                                <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis flex-shrink-0">{{ termin.uhrzeit_start }}{% if termin.uhrzeit_ende and termin.uhrzeit_ende != termin.uhrzeit_start %}–{{ termin.uhrzeit_ende }}{% endif %} Uhr</span>
-                            {% endunless %}
-                        </div>
-                        {% if termin.ort != "" %}
-                            <div class="text-muted small">{{ termin.ort }}</div>
-                        {% endif %}
-                    </div>
+<h3>Anstehende Termine</h3>
+<hr>
+{% if site.data.termine.size > 0 %}
+    <div class="d-flex flex-column gap-2">
+    {% for termin in site.data.termine limit:5 %}
+        <div class="card">
+            <div class="card-header d-flex align-items-center gap-3">
+                <div class="termin-datum text-center flex-shrink-0">
+                    <div class="termin-datum-wochentag">{{ termin.wochentag_kurz }}</div>
+                    <div class="termin-datum-tag">{{ termin.tag }}</div>
+                    <div class="termin-datum-monat">{{ termin.monat_kurz }}</div>
                 </div>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p class="mb-0">Aktuell sind keine Termine geplant – schaut bald wieder vorbei.</p>
-    {% endif %}
+                <div class="flex-grow-1">
+                    <div class="d-flex align-items-start justify-content-between gap-2">
+                        <div class="fw-semibold">{{ termin.titel }}</div>
+                        {% unless termin.zeit_unbekannt %}
+                            <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis flex-shrink-0">{{ termin.uhrzeit_start }}{% if termin.uhrzeit_ende and termin.uhrzeit_ende != termin.uhrzeit_start %}–{{ termin.uhrzeit_ende }}{% endif %} Uhr</span>
+                        {% endunless %}
+                    </div>
+                    {% if termin.ort != "" %}
+                        <div class="text-muted small">
+                            {% if termin.ort_maps_url != "" %}
+                                <a href="{{ termin.ort_maps_url }}" target="_blank" rel="noopener noreferrer" class="text-muted">{{ termin.ort }}</a>
+                            {% else %}
+                                {{ termin.ort }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if termin.beschreibung != "" %}
+                <div class="card-body">
+                    <div class="small">{{ termin.beschreibung | newline_to_br }}</div>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
     </div>
-</div>
+{% else %}
+    <p class="mb-0">Aktuell sind keine Termine geplant – schaut bald wieder vorbei.</p>
+{% endif %}

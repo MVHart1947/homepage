@@ -19,6 +19,15 @@ require "yaml"
 require "time"
 require "tzinfo"
 
+# Lädt KONZERTMEISTER_API_KEY lokal aus einer .env-Datei (falls vorhanden).
+# Überschreibt keine bereits gesetzte Umgebungsvariable, ist also in CI
+# (Key kommt dort aus einem GitHub-Secret) folgenlos.
+begin
+  require "dotenv/load"
+rescue LoadError
+  nil
+end
+
 API_URL = "https://rest.konzertmeister.app/api/v4/org/m2m/appointments"
 TYPE_PERFORMANCE = 2
 OUTPUT_PATH = File.join(__dir__, "..", "_data", "termine.yml")
@@ -81,9 +90,29 @@ def local_time(iso_string, timezone_id)
   timezone.utc_to_local(Time.iso8601(iso_string).utc)
 end
 
+# Konzertmeisters "formattedAddress" enthält je nach Eingabe-Präzision mal die
+# Straße, mal einen Ortsteil, mal das Bundesland (uneinheitlich formatiert).
+# Für die Website reicht der Ort – die genaue Adresse sehen die Musiker:innen
+# ohnehin über die Konzertmeister-App.
+PLZ_ORT_PATTERN = /\d{5}\s+(?<ort>[^,]+)/
+
+def nur_ort(formatted_address)
+  match = PLZ_ORT_PATTERN.match(formatted_address)
+  match ? match[:ort].strip : formatted_address
+end
+
+def maps_url(location)
+  lat = location["latitude"]
+  lng = location["longitude"]
+  return "" unless lat && lng
+
+  "https://www.google.com/maps/search/?api=1&query=#{lat},#{lng}"
+end
+
 def to_termin(appointment)
   location = appointment["location"] || {}
-  ort = location["formattedAddress"] || location["name"] || ""
+  adresse = location["formattedAddress"] || location["name"] || ""
+  ort = nur_ort(adresse)
   timezone_id = appointment["timezoneId"] || DEFAULT_TIMEZONE
 
   start_local = local_time(appointment["start"], timezone_id)
@@ -93,6 +122,7 @@ def to_termin(appointment)
     "titel" => appointment["name"],
     "beschreibung" => appointment["description"] || "",
     "ort" => ort,
+    "ort_maps_url" => maps_url(location),
     "start" => appointment["start"],
     "wochentag_kurz" => WOCHENTAGE_KURZ[start_local.wday],
     "wochentag_lang" => WOCHENTAGE_LANG[start_local.wday],

@@ -1,6 +1,6 @@
 # Musikverein Hart e.V. – Website
 
-[![Build & Deploy nach GitHub Pages](https://github.com/MVHart1947/homepage/actions/workflows/pages.yml/badge.svg)](https://github.com/MVHart1947/homepage/actions/workflows/pages.yml)
+[![Build & Deploy nach GitHub Pages](https://github.com/MVHart1947/musikverein-hart.de/actions/workflows/pages.yml/badge.svg)](https://github.com/MVHart1947/musikverein-hart.de/actions/workflows/pages.yml)
 
 Quellcode der offiziellen Website des [Musikverein Hart e.V.](https://www.musikverein-hart.de) – Blasmusikverein aus dem Zollernalbkreis, mit Terminen, Mitgliedern, Vorstandschaft und Impressum.
 
@@ -56,13 +56,21 @@ Settings → Secrets and variables → Actions → *New repository secret* → N
 
 Der Workflow ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) reicht das Secret nur während des Build-Jobs als Umgebungsvariable an das Fetch-Script durch – der Key landet nie im ausgelieferten `_site`-Verzeichnis und ist für Website-Besucher:innen nicht einsehbar.
 
-**Lokal mit echten Daten arbeiten** (optional): Key nur für den einen Aufruf als Umgebungsvariable setzen, nicht dauerhaft exportieren:
+**Lokal mit echten Daten arbeiten** (optional): entweder den Key nur für den einen Aufruf als Umgebungsvariable setzen, nicht dauerhaft exportieren:
 
 ```bash
 KONZERTMEISTER_API_KEY="dein-key" bundle exec ruby script/fetch_termine.rb
 ```
 
-Ohne gesetzten Key bleibt die zuletzt im Repo vorhandene `_data/termine.yml` unverändert – lokales Entwickeln funktioniert also auch ohne Key.
+...oder dauerhaft in einer lokalen `.env`-Datei hinterlegen (wird von `script/fetch_termine.rb` automatisch geladen, ist per `.gitignore` von Commits ausgeschlossen und landet nie im Repo):
+
+```bash
+cp .env.example .env
+# .env öffnen und KONZERTMEISTER_API_KEY=... eintragen
+bundle exec ruby script/fetch_termine.rb
+```
+
+`_data/termine.yml` selbst ist ebenfalls gitignored – lokal mit echten Terminen zum Design-Testen befüllen ist also gefahrlos, die Datei landet nie in einem Commit. Ohne gesetzten Key (weder als Umgebungsvariable noch via `.env`) bleibt eine bereits lokal vorhandene `_data/termine.yml` unverändert bzw. fehlt auf einem frischen Checkout ganz – lokales Entwickeln funktioniert in beiden Fällen, die Karte zeigt dann einfach "keine Termine geplant".
 
 ## Flyer-Werbung (Startseite)
 
@@ -97,6 +105,6 @@ Die Website liegt auf [GitHub Pages](https://pages.github.com) unter der eigenen
 Workflow: Alle Änderungen laufen über den `develop`-Branch. Sobald `develop` nach `main` gemerged/gepusht wird, laufen automatisch zwei GitHub-Actions-Workflows:
 
 - [`.github/workflows/pages.yml`](.github/workflows/pages.yml) baut die Seite (`bundle exec jekyll build`) und deployed sie auf GitHub Pages. Er läuft zusätzlich täglich per `schedule`, damit neue/geänderte Konzertmeister-Termine auch ohne Code-Änderung erscheinen.
-- [`.github/workflows/release.yml`](.github/workflows/release.yml) erstellt automatisch ein neues [Release](https://github.com/MVHart1947/homepage/releases) nach dem Schema `YYYY.MM.VERSION` (z.&nbsp;B. `2026.08.1`), mit Release-Notes aus dem Commit-Log seit dem letzten Tag.
+- [`.github/workflows/release.yml`](.github/workflows/release.yml) erstellt automatisch ein neues [Release](https://github.com/MVHart1947/musikverein-hart.de/releases) nach dem Schema `YYYY.MM.VERSION` (z.&nbsp;B. `2026.08.1`), mit Release-Notes aus dem Commit-Log seit dem letzten Tag.
 
 **Einmalig im Repository eingerichtet:** Settings → Pages → *Build and deployment* → Source auf „GitHub Actions" gestellt.

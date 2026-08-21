@@ -81,6 +81,17 @@ p {
   font-weight: 700;
 }
 
+// Vorstandschaft-Bild: rundet oben ab, wenn es (unterhalb des xl-Breakpoints,
+// an dem auch die Navbar zum Hamburger-Menü kollabiert) über dem Text steht,
+// und links, sobald es ab xl daneben steht.
+.vorstandschaft-bild {
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+
+  @include media-breakpoint-up(xl) {
+    border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+  }
+}
+
 // Eigenes Collapse-Icon statt Bootstraps navbar-toggler-icon: drei Linien
 // ohne umrahmenden Kasten, die sich beim Öffnen zu einem "X" drehen.
 .navbar-toggler {
@@ -117,6 +128,31 @@ p {
 
 .footer-nav {
   font-size: .875rem;
+}
+
+// Social-Media-Icons in der linken Footer-Spalte: schlicht statt der
+// umrandeten .fa-btn-Kacheln. Mobil nebeneinander, ab md übereinander –
+// analog zu den Rechtliches-Links in der rechten Spalte.
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: .75rem;
+}
+
+@include media-breakpoint-up(md) {
+  .footer-social {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.footer-social-link {
+  color: $secondary;
+  font-size: 1.75rem;
+}
+
+.footer-social-link:hover {
+  opacity: .7;
 }
 
 .footer-link {
@@ -199,33 +235,3 @@ p {
   margin-top: -.5em;
 }
 
-/* Font Awesome Styles */
-/* Style all font awesome icons */
-.fa-btn {
-padding: 20px;
-font-size: 30px;
-border: 5px solid;
-width: 100% !important;
-text-align: center;
-text-decoration: none;
-}
-
-/* Add a hover effect if you want */
-.fa-btn:hover {
-opacity: 0.7;
-color: white;
-text-decoration: none;
-}
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-.fa-facebook {
-background: #3B5998;
-color: white;
-}
-
-.fa-instagram {
-background: #125688;
-color: white;
-}

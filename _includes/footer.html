@@ -1,14 +1,27 @@
 <!-- Footer -->
-<div class="container-fluid" id="footer">
-    <div class="text-center">
-        <a href="/">
-            <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="170" loading="lazy" decoding="async">
-        </a>
-        <nav class="footer-nav mt-3">
-            {% for item in site.data.rechtliches %}<a class="footer-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>{% unless forloop.last %}<span class="footer-link-sep">&middot;</span>{% endunless %}
-            {% endfor %}
-        </nav>
-        <p class="footer-copyright mt-3 mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.contact.organisation }}</p>
+<div id="footer">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-12 col-md-auto order-1 text-center text-md-start">
+                <div class="footer-social h-100">
+                    <a href="{{ site.social.facebook }}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="{{ site.social.instagram }}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="{{ site.social.github }}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md order-3 order-md-2 text-center">
+                <a href="/">
+                    <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="170" loading="lazy" decoding="async">
+                </a>
+                <p class="footer-copyright mt-3 mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.contact.organisation }}</p>
+            </div>
+            <div class="col-12 col-md-auto order-2 order-md-3 text-center text-md-end">
+                <nav class="footer-nav h-100 d-md-flex flex-md-column align-items-md-end justify-content-md-between">
+                    {% for item in site.data.rechtliches %}<a class="footer-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>{% unless forloop.last %}<span class="footer-link-sep d-md-none">&middot;</span>{% endunless %}
+                    {% endfor %}
+                </nav>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Footer End -->
