@@ -130,11 +130,28 @@ p {
   font-size: .875rem;
 }
 
-// Begrenzt die Social-Media-Buttons im Footer auf eine schlanke Breite,
-// statt sie über die volle Footer-Breite zu strecken (.fa-btn setzt
-// width: 100% !important auf ihre .col-Eltern).
+// Social-Media-Icons in der linken Footer-Spalte: schlicht und klein statt
+// der umrandeten .fa-btn-Kacheln, übereinander statt nebeneinander.
 .footer-social {
-  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .footer-social {
+    align-items: flex-start;
+  }
+}
+
+.footer-social-link {
+  color: $secondary;
+  font-size: 1.1rem;
+}
+
+.footer-social-link:hover {
+  opacity: .7;
 }
 
 .footer-link {
