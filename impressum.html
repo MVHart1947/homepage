@@ -14,10 +14,10 @@ header: Impressum
                 <h3 class="card-title"><i class="fa-solid fa-address-card"></i> Anschrift</h3>
                 <hr>
                 <address class="card-text mb-0">
-                    {{ site.contact.organisation }}<br>
+                    <b>{{ site.contact.organisation }}</b><br>
                     {{ site.contact.address_line1 }}<br>
                     {{ site.contact.address_line2 }}<br>
-                    E-Mail: {{ site.contact.email | replace: "@", "(at)" }}
+                    E-Mail: <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
                 </address>
             </div>
         </div>
@@ -25,17 +25,17 @@ header: Impressum
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vertretungsberechtigte 1. Vorst&auml;nde</h3>
+                <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vertretungsberechtigte Vorst&auml;nde</h3>
                 <hr>
                 <p class="card-text mb-0">
                     {% for person in vorsitzende %}{{ person.name }}<br>
-                    {% endfor %}Anschrift siehe Vereinsanschrift
+                    {% endfor %}
                 </p>
             </div>
         </div>
     </div>
 </div>
-
+<hr>
 <div class="container-fluid">
     <section class="imprint" id="grid" data-columns>
       {% for abschnitt in site.data.impressum %}{% include legal-section.html abschnitt=abschnitt %}
