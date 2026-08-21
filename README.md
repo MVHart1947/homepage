@@ -1,6 +1,6 @@
 # Musikverein Hart e.V. – Website
 
-[![Build & Deploy nach GitHub Pages](https://github.com/MVHart1947/homepage/actions/workflows/pages.yml/badge.svg)](https://github.com/MVHart1947/homepage/actions/workflows/pages.yml)
+[![Build & Deploy nach GitHub Pages](https://github.com/MVHart1947/musikverein-hart.de/actions/workflows/pages.yml/badge.svg)](https://github.com/MVHart1947/musikverein-hart.de/actions/workflows/pages.yml)
 
 Quellcode der offiziellen Website des [Musikverein Hart e.V.](https://www.musikverein-hart.de) – Blasmusikverein aus dem Zollernalbkreis, mit Terminen, Mitgliedern, Vorstandschaft und Impressum.
 
@@ -105,6 +105,6 @@ Die Website liegt auf [GitHub Pages](https://pages.github.com) unter der eigenen
 Workflow: Alle Änderungen laufen über den `develop`-Branch. Sobald `develop` nach `main` gemerged/gepusht wird, laufen automatisch zwei GitHub-Actions-Workflows:
 
 - [`.github/workflows/pages.yml`](.github/workflows/pages.yml) baut die Seite (`bundle exec jekyll build`) und deployed sie auf GitHub Pages. Er läuft zusätzlich täglich per `schedule`, damit neue/geänderte Konzertmeister-Termine auch ohne Code-Änderung erscheinen.
-- [`.github/workflows/release.yml`](.github/workflows/release.yml) erstellt automatisch ein neues [Release](https://github.com/MVHart1947/homepage/releases) nach dem Schema `YYYY.MM.VERSION` (z.&nbsp;B. `2026.08.1`), mit Release-Notes aus dem Commit-Log seit dem letzten Tag.
+- [`.github/workflows/release.yml`](.github/workflows/release.yml) erstellt automatisch ein neues [Release](https://github.com/MVHart1947/musikverein-hart.de/releases) nach dem Schema `YYYY.MM.VERSION` (z.&nbsp;B. `2026.08.1`), mit Release-Notes aus dem Commit-Log seit dem letzten Tag.
 
 **Einmalig im Repository eingerichtet:** Settings → Pages → *Build and deployment* → Source auf „GitHub Actions" gestellt.
