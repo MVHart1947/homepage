@@ -14,9 +14,10 @@ header: Kontakt
 {% assign schriftfuehrerin = site.data.mitglieder | where_exp: "m", "m.rollen contains 'schriftfuehrer'" %}
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-        <div class="card">
+        <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Vorsitzende</h5>
+                <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vorsitzende</h3>
+                <hr>
             </div>
             <ul class="list-group list-group-flush">
                 {% for person in vorsitzende %}<li class="list-group-item">{{ person.name }}</li>
@@ -29,9 +30,10 @@ header: Kontakt
         </div>
     </div>
     <div class="col">
-        <div class="card">
+        <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Jugendleiter</h5>
+                <h3 class="card-title"><i class="fa-solid fa-child"></i> Jugendleiter</h3>
+                <hr>
             </div>
             <ul class="list-group list-group-flush">
                 {% for person in jugendleitung %}<li class="list-group-item">{{ person.name }}</li>
@@ -44,9 +46,10 @@ header: Kontakt
         </div>
     </div>
     <div class="col">
-        <div class="card">
+        <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Schriftführer</h5>
+                <h3 class="card-title"><i class="fa-solid fa-pen-nib"></i> Schriftführer</h3>
+                <hr>
             </div>
             <ul class="list-group list-group-flush">
                 {% for person in schriftfuehrerin %}<li class="list-group-item">{{ person.name }}</li>
