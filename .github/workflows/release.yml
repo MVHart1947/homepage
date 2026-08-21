@@ -2,8 +2,8 @@ name: Release
 
 # Erstellt bei jedem Push nach main (i.d.R. ein Merge aus develop/release-*)
 # automatisch einen neuen Git-Tag + GitHub-Release nach dem Schema
-# YYYY.M.VERSION (z.B. 2026.8.1) – VERSION zählt pro Kalendermonat neu ab 1
-# hoch. Schließt an das bestehende Tag-Schema dieses Repos an (z.B. 2026.7.1).
+# YYYY.MM.VERSION (z.B. 2026.08.1) – VERSION zählt pro Kalendermonat neu ab 1
+# hoch.
 
 on:
   push:
@@ -24,12 +24,45 @@ jobs:
       - name: Nächste Versionsnummer ermitteln
         id: version
         run: |
-          YEAR_MONTH=$(date -u +"%Y.%-m")
+          # Letzten existierenden Tag VOR dem Anlegen des neuen Tags merken,
+          # damit die Release-Notes weiter unten wissen, ab wo sie den
+          # Commit-Log auflisten sollen.
+          PREV_TAG=$(git tag --sort=-creatordate | head -n1)
+          echo "prev_tag=${PREV_TAG}" >> "$GITHUB_OUTPUT"
+
+          YEAR_MONTH=$(date -u +"%Y.%m")
           LAST=$(git tag -l "${YEAR_MONTH}.*" | sed "s/^${YEAR_MONTH}\.//" | sort -n | tail -1)
           NEXT=$(( ${LAST:-0} + 1 ))
           VERSION="${YEAR_MONTH}.${NEXT}"
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-          echo "Neue Version: ${VERSION}"
+          echo "Neue Version: ${VERSION} (vorheriger Tag: ${PREV_TAG:-keiner})"
+
+      - name: Release-Notes aus der Commit-Historie erstellen
+        id: notes
+        run: |
+          # gh's "--generate-notes" listet nur gemergte Pull Requests auf –
+          # bei direkten Pushes/Merges nach main ohne PR kommt dabei nur der
+          # leere "Full Changelog"-Link an. Stattdessen bauen wir die Liste
+          # selbst aus dem Commit-Log seit dem letzten Tag.
+          PREV_TAG="${{ steps.version.outputs.prev_tag }}"
+          RANGE="HEAD"
+          if [ -n "$PREV_TAG" ]; then
+            RANGE="${PREV_TAG}..HEAD"
+          fi
+
+          {
+            echo "## Änderungen"
+            echo
+            git log "$RANGE" --no-merges --pretty=format:"* %s"
+            echo
+          } > release-notes.md
+
+          if [ -n "$PREV_TAG" ]; then
+            {
+              echo
+              echo "**Vollständiger Änderungsverlauf**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${{ steps.version.outputs.version }}"
+            } >> release-notes.md
+          fi
 
       - name: Tag erstellen und pushen
         run: |
@@ -42,4 +75,4 @@ jobs:
         run: |
           gh release create "${{ steps.version.outputs.version }}" \
             --title "${{ steps.version.outputs.version }}" \
-            --generate-notes
+            --notes-file release-notes.md
