@@ -22,8 +22,8 @@
     <p class="card-text">Das&nbsp;<strong>Jahr 2004</strong>&nbsp;war f&uuml;r den Musikverein Hart ein ganz besonders Jahr. Obwohl l&auml;ngst &uuml;berf&auml;llig, wurde dem Verein in diesem Jahr die&nbsp;<strong>&bdquo;Pro Musica-Plakette&ldquo;</strong>&nbsp;&uuml;berreicht. Diese Plakette ist ein offizieller Beweis f&uuml;r das &uuml;ber 100j&auml;hrige Bestehen einer Blasmusikvereinigung, welche in Hart nat&uuml;rlich geb&uuml;hrend gefeiert wurde.</p>
     <p class="card-text">Der&nbsp;<strong>H&ouml;hepunkt</strong>&nbsp;in der Geschichte des Musikvereins Hart wurde allerdings im&nbsp;<strong>Jahre 2008</strong>&nbsp;geschrieben. In diesem Jahr traten die Musiker unter der musikalischen Leitung des Dirigenten Elmar Schneider zum ersten Mal in der&nbsp;<strong>Oberstufe beim Wertungsspiel</strong>&nbsp;an und erreichten die Traumnote:</p>
     <p class="card-text"><strong>&bdquo;Mit hervorragendem Erfolg&ldquo;</strong>!!!</p>
-- titel: "Ehemalige Dirigenten &amp; Vorsitzende"
-  icon: "fa-users"
+- titel: "Verdiente Mitglieder"
+  icon: "fa-medal"
   inhalt: |
     <p class="card-text"><strong>Dies alles h&auml;tte der Musikverein Hart nicht erreichen k&ouml;nnen ohne Menschen, denen die Musik und der Verein sehr am Herzen lagen und liegen. Es sind dies ganz besonders:</strong></p>
     <ul class="list-group list-group-flush text-center">
@@ -37,7 +37,7 @@
       <li class="list-group-item"><strong>Hubert Kessler:</strong> 1. Vorsitzender 1998 - 2010</li>
       <li class="list-group-item"><strong>Linus Fechter:</strong> Kassier 1949 - 1999</li>
     </ul>
-- titel: "Dank"
+- titel: "Danksagung"
   icon: "fa-heart"
   inhalt: |
     <p class="card-text">Viele Menschen k&ouml;nnen hier nicht namentlich genannt werden.</p>
