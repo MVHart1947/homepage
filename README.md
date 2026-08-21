@@ -37,7 +37,7 @@ Es gibt keine Tests oder Linter in diesem Repo.
 
 - `index.html`, `historie.html`, `jugend.html`, `mitglieder.html`, `vorstandschaft.html`, `partnerkapelle.html`, `kontakt.html`, `downloads.html`, `impressum.html`, `datenschutz.html` – die Seiten der Website
 - `_layouts/`, `_includes/` – gemeinsames Seitengerüst (Navigation, Footer, Register-/Termine-Karten)
-- `_data/` – listenartiger Inhalt (Mitglieder, Register, Vorstandschaft, Termine, Navigation, Rechtliches), wird per `{% for %}`-Schleife eingebunden
+- `_data/` – listenartiger Inhalt (Mitglieder, Register, Vorstandschaft, Termine, Flyer, Navigation, Rechtliches), wird per `{% for %}`-Schleife eingebunden
 - `_sass/`, `assets/css/main.scss` – Styling (Bootstrap + eigene Anpassungen)
 - `_config.yml` – Site-Einstellungen inkl. Vereinskontakt (`contact.*`)
 - `script/fetch_termine.rb` – holt die Konzerttermine von der Konzertmeister-API (siehe unten)
@@ -63,6 +63,32 @@ KONZERTMEISTER_API_KEY="dein-key" bundle exec ruby script/fetch_termine.rb
 ```
 
 Ohne gesetzten Key bleibt die zuletzt im Repo vorhandene `_data/termine.yml` unverändert – lokales Entwickeln funktioniert also auch ohne Key.
+
+## Flyer-Werbung (Startseite)
+
+Für Aktionen wie die Bachhockete kann auf der Startseite (`index.html`, über `_includes/flyer.html`) automatisch ein Flyer-Bild eingeblendet werden – gesteuert allein über `_data/flyer.yml`, ohne Code-Änderung:
+
+```yaml
+aktiv: true
+bild: "/assets/media/flyer/bh-2026-programm.jpg"
+alt: "Flyer Bachhockete 2026"
+breite: 1610
+hoehe: 2268
+start: 2026-08-01
+ende: 2026-08-31
+```
+
+| Feld     | Bedeutung                                                        |
+|----------|-------------------------------------------------------------------|
+| `aktiv`  | `false` blendet den Flyer unabhängig vom Zeitraum komplett aus    |
+| `bild`   | Pfad zum Bild unter `assets/media/flyer/`                         |
+| `alt`    | Alt-Text für Barrierefreiheit                                     |
+| `breite`/`hoehe` | Bild-Maße in Pixel (für CLS-freies Lazy-Loading)           |
+| `start`/`ende`   | Zeitraum im Format `YYYY-MM-DD` (ISO 8601, ohne Uhrzeit)    |
+
+Der Flyer wird nur angezeigt, wenn `aktiv: true` ist und die aktuelle Build-Zeit zwischen `start` und `ende` liegt (jeweils inklusive, Tagesgenauigkeit). Da die Seite täglich automatisch neu baut (siehe unten), erscheint und verschwindet der Flyer von selbst – ein manueller Deploy an den Stichtagen ist nicht nötig.
+
+**Für eine neue Aktion:** neues Bild unter `assets/media/flyer/` hochladen, `bild`/`breite`/`hoehe`/`start`/`ende` in `_data/flyer.yml` anpassen, committen.
 
 ## Deployment
 
