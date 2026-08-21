@@ -1,11 +1,10 @@
-<div class="card">
-    <div class="card-body">
-    <h3 class="card-title">Anstehende Termine</h3>
-    <hr>
-    {% if site.data.termine.size > 0 %}
-        <ul class="list-group list-group-flush">
-        {% for termin in site.data.termine limit:5 %}
-            <li class="list-group-item">
+<h3>Anstehende Termine</h3>
+<hr>
+{% if site.data.termine.size > 0 %}
+    <div class="d-flex flex-column gap-2">
+    {% for termin in site.data.termine limit:5 %}
+        <div class="card">
+            <div class="card-body">
                 <div class="d-flex align-items-center gap-3">
                     <div class="termin-datum text-center flex-shrink-0">
                         <div class="termin-datum-wochentag">{{ termin.wochentag_kurz }}</div>
@@ -19,19 +18,18 @@
                                 <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis flex-shrink-0">{{ termin.uhrzeit_start }}{% if termin.uhrzeit_ende and termin.uhrzeit_ende != termin.uhrzeit_start %}–{{ termin.uhrzeit_ende }}{% endif %} Uhr</span>
                             {% endunless %}
                         </div>
-                        {% if termin.ort != "" %}
-                            <div class="text-muted small">{{ termin.ort }}</div>
-                        {% endif %}
                         {% if termin.beschreibung != "" %}
                             <div class="small mt-1">{{ termin.beschreibung | newline_to_br }}</div>
                         {% endif %}
+                        {% if termin.ort != "" %}
+                            <div class="text-muted small mt-1">{{ termin.ort }}</div>
+                        {% endif %}
                     </div>
                 </div>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p class="mb-0">Aktuell sind keine Termine geplant – schaut bald wieder vorbei.</p>
-    {% endif %}
+            </div>
+        </div>
+    {% endfor %}
     </div>
-</div>
+{% else %}
+    <p class="mb-0">Aktuell sind keine Termine geplant – schaut bald wieder vorbei.</p>
+{% endif %}
