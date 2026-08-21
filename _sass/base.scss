@@ -156,17 +156,24 @@ p {
 // Anschrift-/Vertretungsberechtigte-Karten oben auf der Impressum-Seite
 // stehen bewusst getrennt vom #grid-Masonry darunter und füllen zu zweit
 // die komplette Breite (50/50), statt sich am 3-Spalten-Breakpoint des
-// Grids zu orientieren. Verwendet trotzdem denselben Float+Padding-
-// Mechanismus wie .column/.item (statt Bootstraps .row/.col mit negativen
-// Margins), damit die Breite hier verlässlich stimmt.
+// Grids zu orientieren. Echtes Flexbox statt Bootstraps .row/.col (dessen
+// negative Margins die Breite verfälscht hätten) – bringt nebenbei auch
+// das Stretch-Verhalten zurück, das .card.h-100 braucht, um beide Karten
+// gleich hoch zu machen.
+.pflichtangaben-row {
+  display: flex;
+  flex-wrap: wrap;
+}
 .pflichtangaben-col {
-  float: left;
   width: 100%;
 }
 @media screen and (min-width: 481px) {
   .pflichtangaben-col {
     width: 50%;
   }
+}
+.pflichtangaben-col > .item {
+  height: 100%;
 }
 
 /* Again, you’re free to use and define the classes: */
