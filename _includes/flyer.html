@@ -1,3 +1,10 @@
+{% assign flyer = site.data.flyer %}
+{% assign jetzt = site.time | date: "%s" | plus: 0 %}
+{% assign start = flyer.start | date: "%s" | plus: 0 %}
+{% assign ende = flyer.ende | date: "%s" | plus: 0 %}
+{% if flyer.aktiv and jetzt >= start and jetzt <= ende %}
 <div class="card">
-    <img class="card-img-top" src="assets/media/flyer/bh-2026-programm.jpg" fetchpriority="high" decoding="async" width="1610" height="2268"/>
+    <img class="card-img-top" src="{{ flyer.bild }}" alt="{{ flyer.alt }}" fetchpriority="high" decoding="async" width="{{ flyer.breite }}" height="{{ flyer.hoehe }}"/>
 </div>
+<hr>
+{% endif %}
