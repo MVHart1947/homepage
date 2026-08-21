@@ -5,10 +5,10 @@ header: Die Vorstandschaft
 ---
 <div class="card px-0">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-xl-8">
             <img class="w-100 h-100 object-fit-cover rounded-start" src="assets/media/register/04_Vorstandschaft 3.webp" loading="lazy" decoding="async" width="1047" height="753">
         </div>
-        <div class="col-lg-4">
+        <div class="col-xl-4">
             <div class="card-body">
                 {% for eintrag in site.data.vorstandschaft %}
                 {% assign traeger = site.data.mitglieder | where_exp: "m", "m.rollen contains eintrag.id" %}
