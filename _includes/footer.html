@@ -1,15 +1,18 @@
 <!-- Footer -->
 <div class="container-fluid" id="footer">
-    <div class="row gy-1">
-        <div class="col-6 col-md-3 col-lg-2 offset-3 offset-md-0">
+    <div class="row gy-2">
+        <div class="col-12 text-center">
             <a href="/">
-                <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="100%" loading="lazy" decoding="async">
+                <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="140" loading="lazy" decoding="async">
             </a>
         </div>
-        <div class="col-12 col-md-3 col-lg-2 offset-md-6 offset-lg-8">
-            <nav class="nav flex-column nav-underline text-center text-md-end">
+        <div class="col-12">
+            <nav class="nav flex-column flex-md-row align-items-center justify-content-center nav-underline">
                 {% for item in site.data.rechtliches %}<a class="nav-link link-secondary {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>
                 {% endfor %}</nav>
+        </div>
+        <div class="col-12">
+            <small class="d-block text-center text-body-secondary">&copy; {{ site.time | date: "%Y" }} {{ site.contact.organisation }}</small>
         </div>
     </div>
 </div>
