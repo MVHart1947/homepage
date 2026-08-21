@@ -64,6 +64,34 @@ p {
   font-weight: 700;
 }
 
+// Eigenes Collapse-Icon statt Bootstraps navbar-toggler-icon: drei Linien
+// ohne umrahmenden Kasten, die sich beim Öffnen zu einem "X" drehen.
+.navbar-toggler {
+  border: 0;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 #footer {
   background-color: $footerBg;
   padding: 2em 1em 1em;
