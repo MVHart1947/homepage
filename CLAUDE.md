@@ -38,7 +38,7 @@ Most "listing" pages are Liquid templates that iterate over YAML in `_data/`, no
 - **`_data/register.yml`** — metadata per instrument register (display name, photo, dimensions) referenced by `mitglieder.html` via `_includes/register-card.html`.
 - **`_data/vorstandschaft.yml`** — metadata per board role (display label, separator, optional email). Role *holders* come from `mitglieder.yml`'s `rollen` field, not from this file. Consumed by `vorstandschaft.html`, `kontakt.html`, `impressum.html`, and `jugend.html` — a role added here must make sense across all four.
 - **`_data/termine.yml`** — upcoming event data, machine-generated (see below). Never hand-edit; it gets overwritten on the next build/fetch.
-- **`_data/navigation.yml`**, **`_data/rechtliches.yml`**, **`_data/datenschutz.yml`** — nav links and legal text blocks.
+- **`_data/navigation.yml`**, **`_data/rechtliches.yml`**, **`_data/datenschutz.yml`**, **`_data/impressum.yml`** — nav links and legal text blocks, each entry with `titel`/`icon`/`inhalt`, rendered via `_includes/legal-section.html` into a Masonry grid (`datenschutz.html`, and the lower half of `impressum.html`). `impressum.html`'s top two cards (Anschrift, Vertretungsberechtigte) are hand-written outside that grid instead, since they need live Liquid lookups against `site.contact`/`_data/mitglieder.yml`.
 
 ### Konzertmeister integration (event listings)
 
