@@ -22,6 +22,9 @@
                         {% if termin.ort != "" %}
                             <div class="text-muted small">{{ termin.ort }}</div>
                         {% endif %}
+                        {% if termin.beschreibung != "" %}
+                            <div class="small mt-1">{{ termin.beschreibung | newline_to_br }}</div>
+                        {% endif %}
                     </div>
                 </div>
             </li>

@@ -56,13 +56,21 @@ Settings → Secrets and variables → Actions → *New repository secret* → N
 
 Der Workflow ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) reicht das Secret nur während des Build-Jobs als Umgebungsvariable an das Fetch-Script durch – der Key landet nie im ausgelieferten `_site`-Verzeichnis und ist für Website-Besucher:innen nicht einsehbar.
 
-**Lokal mit echten Daten arbeiten** (optional): Key nur für den einen Aufruf als Umgebungsvariable setzen, nicht dauerhaft exportieren:
+**Lokal mit echten Daten arbeiten** (optional): entweder den Key nur für den einen Aufruf als Umgebungsvariable setzen, nicht dauerhaft exportieren:
 
 ```bash
 KONZERTMEISTER_API_KEY="dein-key" bundle exec ruby script/fetch_termine.rb
 ```
 
-Ohne gesetzten Key bleibt die zuletzt im Repo vorhandene `_data/termine.yml` unverändert – lokales Entwickeln funktioniert also auch ohne Key.
+...oder dauerhaft in einer lokalen `.env`-Datei hinterlegen (wird von `script/fetch_termine.rb` automatisch geladen, ist per `.gitignore` von Commits ausgeschlossen und landet nie im Repo):
+
+```bash
+cp .env.example .env
+# .env öffnen und KONZERTMEISTER_API_KEY=... eintragen
+bundle exec ruby script/fetch_termine.rb
+```
+
+Ohne gesetzten Key (weder als Umgebungsvariable noch via `.env`) bleibt die zuletzt im Repo vorhandene `_data/termine.yml` unverändert – lokales Entwickeln funktioniert also auch ohne Key.
 
 ## Flyer-Werbung (Startseite)
 

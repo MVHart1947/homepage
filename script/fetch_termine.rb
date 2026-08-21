@@ -19,6 +19,15 @@ require "yaml"
 require "time"
 require "tzinfo"
 
+# Lädt KONZERTMEISTER_API_KEY lokal aus einer .env-Datei (falls vorhanden).
+# Überschreibt keine bereits gesetzte Umgebungsvariable, ist also in CI
+# (Key kommt dort aus einem GitHub-Secret) folgenlos.
+begin
+  require "dotenv/load"
+rescue LoadError
+  nil
+end
+
 API_URL = "https://rest.konzertmeister.app/api/v4/org/m2m/appointments"
 TYPE_PERFORMANCE = 2
 OUTPUT_PATH = File.join(__dir__, "..", "_data", "termine.yml")
