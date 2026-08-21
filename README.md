@@ -70,7 +70,7 @@ cp .env.example .env
 bundle exec ruby script/fetch_termine.rb
 ```
 
-Ohne gesetzten Key (weder als Umgebungsvariable noch via `.env`) bleibt die zuletzt im Repo vorhandene `_data/termine.yml` unverändert – lokales Entwickeln funktioniert also auch ohne Key.
+`_data/termine.yml` selbst ist ebenfalls gitignored – lokal mit echten Terminen zum Design-Testen befüllen ist also gefahrlos, die Datei landet nie in einem Commit. Ohne gesetzten Key (weder als Umgebungsvariable noch via `.env`) bleibt eine bereits lokal vorhandene `_data/termine.yml` unverändert bzw. fehlt auf einem frischen Checkout ganz – lokales Entwickeln funktioniert in beiden Fällen, die Karte zeigt dann einfach "keine Termine geplant".
 
 ## Flyer-Werbung (Startseite)
 

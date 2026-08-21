@@ -10,6 +10,11 @@ Gemfile.lock
 # Lokale Secrets (z.B. KONZERTMEISTER_API_KEY), siehe .env.example
 .env
 
+# Wird bei jedem Build/CI-Lauf frisch von der Konzertmeister-API geholt
+# (script/fetch_termine.rb) – lokal beliebig befüllbar zum Designen, landet
+# aber nie im Repo.
+_data/termine.yml
+
 # General
 .DS_Store
 __MACOSX/
