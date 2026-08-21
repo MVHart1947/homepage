@@ -8,7 +8,7 @@ Quellcode der offiziellen Website des [Musikverein Hart e.V.](https://www.musikv
 
 - [Jekyll](https://jekyllrb.com) 4.3 (Ruby, statischer Seitengenerator)
 - [Bootstrap](https://getbootstrap.com) 5.3 als Ruby-Gem eingebunden (siehe [`_plugins/bootstrap_sass_paths.rb`](_plugins/bootstrap_sass_paths.rb)), kein CDN-Aufruf zu Drittanbietern
-- [Font Awesome](https://fontawesome.com) manuell unter `assets/fontawesome/` vendort (kein Gem, kein CDN)
+- [Font Awesome](https://fontawesome.com) 6 als Ruby-Gem eingebunden (siehe [`_plugins/font_awesome_sass_paths.rb`](_plugins/font_awesome_sass_paths.rb)), kein CDN-Aufruf zu Drittanbietern
 - Bootstraps JS-Bundle (`assets/js/bootstrap.bundle.min.js`) nur für die Collapse-Funktion des mobilen Navigations-Togglers; [Salvattore](https://github.com/rnmp/salvattore) (`assets/js/salvattore.js`) für das Masonry-Grid auf `mitglieder.html` und `datenschutz.html` – sonst kein eigenes JavaScript
 
 ### Farben

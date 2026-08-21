@@ -51,7 +51,7 @@ Single layout (`_layouts/default.html`) wraps every page: `head.html` → `navig
 
 ### Sass
 
-Bootstrap is pulled in as a Ruby gem (`_sass/` uses `@import`/`@use` against the gem's Sass sources via `sass.load_paths`), not via npm/CDN — there's no `node_modules`. Custom overrides go in `_sass/vars.scss` (Bootstrap variable overrides, must load before Bootstrap) and `_sass/base.scss`.
+Bootstrap and Font Awesome are both pulled in as Ruby gems (`_sass/` uses `@import` against the gems' Sass sources via `sass.load_paths`, registered in `_plugins/bootstrap_sass_paths.rb` and `_plugins/font_awesome_sass_paths.rb`), not via npm/CDN — there's no `node_modules` and no vendored icon files in the repo. The Font Awesome plugin also copies the gem's font files into `_site/assets/fonts/` after every build (`post_write` hook) since Jekyll only serves files that exist in the output. Custom overrides go in `_sass/vars.scss` (Bootstrap/Font-Awesome variable overrides, must load before their respective `@import`) and `_sass/base.scss`. Icon usage: `<i class="fa-solid fa-...">` / `fa-brands fa-...` (v6 syntax, e.g. in `_data/navigation.yml`'s `icon:` field or `_includes/social.html`).
 
 ## CI/CD
 
