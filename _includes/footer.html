@@ -2,7 +2,7 @@
 <div class="container-fluid" id="footer">
     <div class="row gy-3 align-items-center align-items-md-end">
         <div class="col-12 col-md-4 text-center text-md-start">
-            <nav class="nav flex-column flex-md-row align-items-center justify-content-center justify-content-md-start nav-underline">
+            <nav class="nav flex-column align-items-center align-items-md-start nav-underline">
                 {% for item in site.data.rechtliches %}<a class="nav-link link-secondary {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>
                 {% endfor %}</nav>
         </div>
