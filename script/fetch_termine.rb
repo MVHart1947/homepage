@@ -101,6 +101,14 @@ def nur_ort(formatted_address)
   match ? match[:ort].strip : formatted_address
 end
 
+def maps_url(location)
+  lat = location["latitude"]
+  lng = location["longitude"]
+  return "" unless lat && lng
+
+  "https://www.google.com/maps/search/?api=1&query=#{lat},#{lng}"
+end
+
 def to_termin(appointment)
   location = appointment["location"] || {}
   adresse = location["formattedAddress"] || location["name"] || ""
@@ -114,6 +122,7 @@ def to_termin(appointment)
     "titel" => appointment["name"],
     "beschreibung" => appointment["description"] || "",
     "ort" => ort,
+    "ort_maps_url" => maps_url(location),
     "start" => appointment["start"],
     "wochentag_kurz" => WOCHENTAGE_KURZ[start_local.wday],
     "wochentag_lang" => WOCHENTAGE_LANG[start_local.wday],

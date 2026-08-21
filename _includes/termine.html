@@ -18,7 +18,13 @@
                         {% endunless %}
                     </div>
                     {% if termin.ort != "" %}
-                        <div class="text-muted small">{{ termin.ort }}</div>
+                        <div class="text-muted small">
+                            {% if termin.ort_maps_url != "" %}
+                                <a href="{{ termin.ort_maps_url }}" target="_blank" rel="noopener noreferrer" class="text-muted">{{ termin.ort }}</a>
+                            {% else %}
+                                {{ termin.ort }}
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
             </div>
