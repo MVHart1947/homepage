@@ -81,6 +81,17 @@ p {
   font-weight: 700;
 }
 
+// Vorstandschaft-Bild: rundet oben ab, wenn es (unterhalb des xl-Breakpoints,
+// an dem auch die Navbar zum Hamburger-Menü kollabiert) über dem Text steht,
+// und links, sobald es ab xl daneben steht.
+.vorstandschaft-bild {
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+
+  @include media-breakpoint-up(xl) {
+    border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+  }
+}
+
 // Eigenes Collapse-Icon statt Bootstraps navbar-toggler-icon: drei Linien
 // ohne umrahmenden Kasten, die sich beim Öffnen zu einem "X" drehen.
 .navbar-toggler {
