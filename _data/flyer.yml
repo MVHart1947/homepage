@@ -1,0 +1,16 @@
+# Flyer-Werbung auf der Startseite (index.html, über _includes/flyer.html).
+# Wird nur zwischen start und ende angezeigt und verschwindet danach von
+# selbst wieder – Sichtbarkeit wird bei jedem Build neu geprüft (site.time),
+# und die Seite baut ohnehin täglich neu (siehe .github/workflows/pages.yml),
+# holt die Änderung also spätestens am Folgetag ab.
+#
+# Für eine neue Aktion: neues Bild unter assets/media/flyer/ hochladen,
+# bild/breite/hoehe/start/ende hier eintragen. aktiv: false blendet den
+# Flyer unabhängig vom Zeitraum komplett aus.
+aktiv: true
+bild: "/assets/media/flyer/bh-2026-programm.jpg"
+alt: "Flyer Bachhockete 2026"
+breite: 1610
+hoehe: 2268
+start: 2026-07-14
+ende: 2026-08-05

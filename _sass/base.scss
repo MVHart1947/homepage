@@ -1,4 +1,5 @@
 $bodyColor: #000000;
+$footerBg: #eeeeee;
 
 // Bilder haben width/height-Attribute (für CLS-freies Lazy-Loading), aber
 // z.B. Bootstraps .card-img-top setzt nur width:100% ohne height:auto.
@@ -6,6 +7,13 @@ $bodyColor: #000000;
 // gestaucht statt im Seitenverhältnis zu skalieren.
 img {
   height: auto;
+}
+
+// Abstand zwischen dem <hr> unter dem Seitentitel und dem Seiteninhalt
+// (_layouts/default.html). Kein Bootstrap-Spacer trifft exakt 12px
+// (pt-3 = 16px, pt-4 = 24px), daher eigene Klasse statt Utility-Klasse.
+.content-gap {
+  padding-top: 12px;
 }
 
 @font-face {
@@ -16,7 +24,8 @@ img {
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 body {
-  font-family: $bodyFont !important; 
+  font-family: $bodyFont !important;
+  background-color: $footerBg;
 }
 
 h2 {
@@ -24,7 +33,17 @@ h2 {
 }
 
 h3 {
-  font-family: TrajanProRegular !important; 
+  font-family: TrajanProRegular !important;
+}
+
+.navbar-brand {
+  font-family: TrajanProRegular !important;
+  font-size: 14pt !important;
+}
+
+.nav-link {
+  font-family: TrajanProRegular !important;
+  font-size: 11pt !important;
 }
 
 p {
@@ -62,9 +81,62 @@ p {
   font-weight: 700;
 }
 
+// Eigenes Collapse-Icon statt Bootstraps navbar-toggler-icon: drei Linien
+// ohne umrahmenden Kasten, die sich beim Öffnen zu einem "X" drehen.
+.navbar-toggler {
+  border: 0;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 #footer {
-  background-color: #eeeeee;
-  padding: 1em;
+  background-color: $footerBg;
+  padding: 2em 1em 1em;
+  border-top: 1px solid #dddddd;
+}
+
+.footer-nav {
+  font-size: .875rem;
+}
+
+.footer-link {
+  color: $secondary;
+  text-decoration: none;
+}
+
+.footer-link:hover,
+.footer-link.active {
+  text-decoration: underline;
+}
+
+.footer-link-sep {
+  color: $tertiary;
+  margin: 0 .5rem;
+}
+
+.footer-copyright {
+  font-size: .875rem;
+  color: $tertiary;
 }
 
 #FilesDiv {
@@ -88,12 +160,44 @@ p {
 }
 }
 
+// Anschrift-/Vertretungsberechtigte-Karten oben auf der Impressum-Seite
+// stehen bewusst getrennt vom #grid-Masonry darunter und füllen zu zweit
+// die komplette Breite (50/50), statt sich am 3-Spalten-Breakpoint des
+// Grids zu orientieren. Echtes Flexbox statt Bootstraps .row/.col (dessen
+// negative Margins die Breite verfälscht hätten) – bringt nebenbei auch
+// das Stretch-Verhalten zurück, das .card.h-100 braucht, um beide Karten
+// gleich hoch zu machen.
+.pflichtangaben-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pflichtangaben-col {
+  width: 100%;
+}
+@media screen and (min-width: 481px) {
+  .pflichtangaben-col {
+    width: 50%;
+  }
+}
+.pflichtangaben-col > .item {
+  height: 100%;
+}
+
 /* Again, you’re free to use and define the classes: */
 .column { float: left; }
 .size-1of1 { width: 100%; }
 .size-1of2 {  width: 50%; }
 .size-1of3 {  width: 33.333%; }
 .item { padding: .5em; }
+
+// .item bringt oben/unten dasselbe Padding wie links/rechts mit (für den
+// Abstand zwischen gestapelten Karten einer Spalte). Beim jeweils ersten
+// Item pro Spalte verschiebt das aber die Karte zusätzlich nach unten, wo
+// Bootstraps .row-Gutter (nur horizontales Padding, Rest über Margin) die
+// erste Karte bündig lässt. Gleicht das analog zu .row > * aus.
+.column > .item:first-child {
+  margin-top: -.5em;
+}
 
 /* Font Awesome Styles */
 /* Style all font awesome icons */

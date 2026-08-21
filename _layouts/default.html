@@ -3,19 +3,20 @@
   <head>
     {% include head.html %}
   </head>
-  <body class="light-bg-subtle">
+  <body>
     {% include navigation.html %}
     <!-- Content -->
-    <div class="container mt-5 pt-5">
-      <h2>{{ page.header }}</h2>
-      <hr>
-      <div class="row">
-      {{ content }}
+    <div class="bg-white mt-5 py-5">
+      <div class="container">
+        <h2{% if page.url == "/" %} class="text-center"{% endif %}>{{ page.header }}</h2>
+        <hr>
+        <div class="clearfix content-gap">
+          {{ content }}
+        </div>
       </div>
-      <hr>
-      {% include footer.html %}
     </div>
     <!-- Content End -->
+    {% include footer.html %}
     <script type="text/javascript" src="/assets/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/assets/js/salvattore.js"></script>
   </body>

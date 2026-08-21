@@ -1,16 +1,14 @@
 <!-- Footer -->
 <div class="container-fluid" id="footer">
-    <div class="row gy-1">
-        <div class="col-6 col-md-3 col-lg-2 offset-3 offset-md-0">
-            <a href="/">
-                <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="100%" loading="lazy" decoding="async">
-            </a>
-        </div>
-        <div class="col-12 col-md-3 col-lg-2 offset-md-6 offset-lg-8">
-            <nav class="nav flex-column nav-underline text-center text-md-end">
-                {% for item in site.data.rechtliches %}<a class="nav-link link-secondary {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>
-                {% endfor %}</nav>
-        </div>
+    <div class="text-center">
+        <a href="/">
+            <img src="/assets/media/mv-logo.svg" alt="MV-Logo" width="170" loading="lazy" decoding="async">
+        </a>
+        <nav class="footer-nav mt-3">
+            {% for item in site.data.rechtliches %}<a class="footer-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>{% unless forloop.last %}<span class="footer-link-sep">&middot;</span>{% endunless %}
+            {% endfor %}
+        </nav>
+        <p class="footer-copyright mt-3 mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.contact.organisation }}</p>
     </div>
 </div>
 <!-- Footer End -->

@@ -1,18 +1,20 @@
 <!-- Navigation -->
-<nav class="shadow-lg navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
+<nav class="shadow-lg navbar fixed-top navbar-expand-xl bg-primary" data-bs-theme="dark">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <a class="navbar-brand" href="/">
             {{ site.title }}
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
         </button>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-underline d-flex">
+            <ul class="navbar-nav nav-underline d-flex ms-auto">
                 {% for item in site.data.navigation %}<li class="nav-item">
-                    <a class="nav-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}">{{ item.titel }}</a>
+                    <a class="nav-link {% if page.url == item.url %}active{% endif %}" aria-current="{% if page.url == item.url %}page{% endif %}" href="{{ item.url | relative_url }}"><i class="fa-solid {{ item.icon }}"></i> {{ item.titel }}</a>
                 </li>
                 {% endfor %}</ul>
         </div>

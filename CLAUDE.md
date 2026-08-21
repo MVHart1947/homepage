@@ -11,6 +11,7 @@ Jekyll-based static website for Musikverein Hart e.V. (a German brass band assoc
 ```bash
 bundle install                    # install gems (first-time setup)
 bundle exec jekyll serve          # local dev server at http://127.0.0.1:4000
+bundle exec jekyll serve --livereload         # local dev server at http://127.0.0.1:4000 for continuuse use, except when changing _config.yml
 bundle exec jekyll build          # production-style build into ./_site
 JEKYLL_ENV=production bundle exec jekyll build   # build with production env (matches CI)
 ```
@@ -37,7 +38,8 @@ Most "listing" pages are Liquid templates that iterate over YAML in `_data/`, no
 - **`_data/register.yml`** — metadata per instrument register (display name, photo, dimensions) referenced by `mitglieder.html` via `_includes/register-card.html`.
 - **`_data/vorstandschaft.yml`** — metadata per board role (display label, separator, optional email). Role *holders* come from `mitglieder.yml`'s `rollen` field, not from this file. Consumed by `vorstandschaft.html`, `kontakt.html`, `impressum.html`, and `jugend.html` — a role added here must make sense across all four.
 - **`_data/termine.yml`** — upcoming event data, machine-generated (see below). Never hand-edit; it gets overwritten on the next build/fetch.
-- **`_data/navigation.yml`**, **`_data/rechtliches.yml`**, **`_data/datenschutz.yml`** — nav links and legal text blocks.
+- **`_data/navigation.yml`**, **`_data/rechtliches.yml`**, **`_data/datenschutz.yml`**, **`_data/impressum.yml`** — nav links and legal text blocks, each entry with `titel`/`icon`/`inhalt`, rendered via `_includes/legal-section.html` into a Masonry grid (`datenschutz.html`, and the lower half of `impressum.html`). `impressum.html`'s top two cards (Anschrift, Vertretungsberechtigte) are hand-written outside that grid instead, since they need live Liquid lookups against `site.contact`/`_data/mitglieder.yml`.
+- **`_data/flyer.yml`** — controls the promo flyer card on the homepage (`_includes/flyer.html`, included unconditionally from `index.html`). Only rendered when `aktiv: true` and the build time (`site.time`) falls within `start`/`ende`; the daily CI rebuild (see below) means it appears/disappears on its own without a code change. For a new campaign: upload the new image under `assets/media/flyer/` and update `bild`/`breite`/`hoehe`/`start`/`ende` here — never edit `index.html` or `flyer.html` for this.
 
 ### Konzertmeister integration (event listings)
 
@@ -51,7 +53,7 @@ Single layout (`_layouts/default.html`) wraps every page: `head.html` → `navig
 
 ### Sass
 
-Bootstrap is pulled in as a Ruby gem (`_sass/` uses `@import`/`@use` against the gem's Sass sources via `sass.load_paths`), not via npm/CDN — there's no `node_modules`. Custom overrides go in `_sass/vars.scss` (Bootstrap variable overrides, must load before Bootstrap) and `_sass/base.scss`.
+Bootstrap and Font Awesome are both pulled in as Ruby gems (`_sass/` uses `@import` against the gems' Sass sources via `sass.load_paths`, registered in `_plugins/bootstrap_sass_paths.rb` and `_plugins/font_awesome_sass_paths.rb`), not via npm/CDN — there's no `node_modules` and no vendored icon files in the repo. The Font Awesome plugin also copies the gem's font files into `_site/assets/fonts/` after every build (`post_write` hook) since Jekyll only serves files that exist in the output. Custom overrides go in `_sass/vars.scss` (Bootstrap/Font-Awesome variable overrides, must load before their respective `@import`) and `_sass/base.scss`. Icon usage: `<i class="fa-solid fa-...">` / `fa-brands fa-...` (v6 syntax, e.g. in `_data/navigation.yml`'s `icon:` field or `_includes/social.html`).
 
 ## CI/CD
 
