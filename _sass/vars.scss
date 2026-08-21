@@ -3,3 +3,7 @@ $secondary: #eb1c24;
 $tertiary: #919396;
 
 $enable-shadows: true;
+
+// Font-Awesome-Gem: Font-Dateien liegen (siehe _plugins/font_awesome_sass_paths.rb)
+// neben den restlichen Web-Fonts unter /assets/fonts/, nicht im Gem-Standardpfad.
+$fa-font-path: "/assets/fonts";
