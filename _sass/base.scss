@@ -69,6 +69,23 @@ p {
   border-top: 1px solid #dddddd;
 }
 
+.footer-nav {
+  gap: .35rem;
+}
+
+.footer-nav .nav-link,
+.footer-copyright {
+  padding: 0;
+  font-size: .875rem;
+  color: $tertiary;
+}
+
+.footer-nav .nav-link:hover,
+.footer-nav .nav-link.active {
+  color: $primary;
+  text-decoration: underline;
+}
+
 #FilesDiv {
   width: 100%;    
 }
