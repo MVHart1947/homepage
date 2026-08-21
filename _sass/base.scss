@@ -9,6 +9,13 @@ img {
   height: auto;
 }
 
+// Abstand zwischen dem <hr> unter dem Seitentitel und dem Seiteninhalt
+// (_layouts/default.html). Kein Bootstrap-Spacer trifft exakt 12px
+// (pt-3 = 16px, pt-4 = 24px), daher eigene Klasse statt Utility-Klasse.
+.content-gap {
+  padding-top: 12px;
+}
+
 @font-face {
   font-family: 'TrajanProRegular';
   src: url('/assets/fonts/TrajanPro-Regular.ttf') format('truetype');
