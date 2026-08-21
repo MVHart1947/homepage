@@ -130,24 +130,24 @@ p {
   font-size: .875rem;
 }
 
-// Social-Media-Icons in der linken Footer-Spalte: schlicht und klein statt
-// der umrandeten .fa-btn-Kacheln, übereinander statt nebeneinander.
+// Social-Media-Icons in der linken Footer-Spalte: schlicht statt der
+// umrandeten .fa-btn-Kacheln, horizontal nebeneinander.
 .footer-social {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 }
 
 @include media-breakpoint-up(md) {
   .footer-social {
-    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
 
 .footer-social-link {
   color: $secondary;
-  font-size: 1.1rem;
+  font-size: 1.75rem;
 }
 
 .footer-social-link:hover {
