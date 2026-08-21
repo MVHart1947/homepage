@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Jekyll-based static website for Musikverein Hart e.V. (a German brass band association), hosted on GitHub Pages at musikverein-hart.de. Built with Jekyll 4.3, Bootstrap 5.3 (via Sass gem, not npm), and vanilla JS. No JS build step / no node_modules — this is a Ruby/Jekyll-only project.
 
+## Git-Workflow
+
+`main` ist der Produktions-Branch: jeder Push löst Deploy (`pages.yml`) und Auto-Release (`release.yml`) aus. Alle Arbeit passiert auf `develop`, das per Merge-Commit nach `main` übernommen wird. **Niemals direkt auf `main` committen** — vor jeder Änderung prüfen, dass `develop` ausgecheckt ist (`git branch --show-current`), und bei versehentlichen Commits auf `main` diese per Cherry-Pick nach `develop` verschieben und `main` zurücksetzen.
+
 ## Commands
 
 ```bash
