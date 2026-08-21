@@ -7,30 +7,36 @@ header: Impressum
 {% assign vorsitzende_2 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-2'" %}
 {% assign vorsitzende = vorsitzende_1 | concat: vorsitzende_2 %}
 <h3>Pflichtangaben nach TMG</h3>
-<div class="row row-cols-1 row-cols-md-2 g-2 mb-4">
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title"><i class="fa-solid fa-address-card"></i> Anschrift</h3>
-                <hr>
-                <address class="card-text mb-0">
-                    <b>{{ site.contact.organisation }}</b><br>
-                    {{ site.contact.address_line1 }}<br>
-                    {{ site.contact.address_line2 }}<br>
-                    E-Mail: <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
-                </address>
+<div class="container-fluid g-2">
+    <div class="clearfix mb-4 pflichtangaben-row">
+        <div class="pflichtangaben-col">
+            <div class="item">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fa-solid fa-address-card"></i> Anschrift</h3>
+                        <hr>
+                        <address class="card-text mb-0">
+                            <b>{{ site.contact.organisation }}</b><br>
+                            {{ site.contact.address_line1 }}<br>
+                            {{ site.contact.address_line2 }}<br>
+                            E-Mail: <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+                        </address>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vertretungsberechtigte Vorst&auml;nde</h3>
-                <hr>
-                <p class="card-text mb-0">
-                    {% for person in vorsitzende %}{{ person.name }}<br>
-                    {% endfor %}
-                </p>
+        <div class="pflichtangaben-col">
+            <div class="item">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vertretungsberechtigte Vorst&auml;nde</h3>
+                        <hr>
+                        <p class="card-text mb-0">
+                            {% for person in vorsitzende %}{{ person.name }}<br>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

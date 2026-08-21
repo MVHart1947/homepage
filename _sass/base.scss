@@ -153,12 +153,37 @@ p {
 }
 }
 
+// Anschrift-/Vertretungsberechtigte-Karten oben auf der Impressum-Seite
+// stehen bewusst getrennt vom #grid-Masonry darunter und füllen zu zweit
+// die komplette Breite (50/50), statt sich am 3-Spalten-Breakpoint des
+// Grids zu orientieren. Verwendet trotzdem denselben Float+Padding-
+// Mechanismus wie .column/.item (statt Bootstraps .row/.col mit negativen
+// Margins), damit die Breite hier verlässlich stimmt.
+.pflichtangaben-col {
+  float: left;
+  width: 100%;
+}
+@media screen and (min-width: 481px) {
+  .pflichtangaben-col {
+    width: 50%;
+  }
+}
+
 /* Again, you’re free to use and define the classes: */
 .column { float: left; }
 .size-1of1 { width: 100%; }
 .size-1of2 {  width: 50%; }
 .size-1of3 {  width: 33.333%; }
 .item { padding: .5em; }
+
+// .item bringt oben/unten dasselbe Padding wie links/rechts mit (für den
+// Abstand zwischen gestapelten Karten einer Spalte). Beim jeweils ersten
+// Item pro Spalte verschiebt das aber die Karte zusätzlich nach unten, wo
+// Bootstraps .row-Gutter (nur horizontales Padding, Rest über Margin) die
+// erste Karte bündig lässt. Gleicht das analog zu .row > * aus.
+.column > .item:first-child {
+  margin-top: -.5em;
+}
 
 /* Font Awesome Styles */
 /* Style all font awesome icons */
