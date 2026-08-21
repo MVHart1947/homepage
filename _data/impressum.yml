@@ -6,10 +6,6 @@
 # Vertretungsberechtigte) stehen als eigene zwei Cards oben in
 # impressum.html, da sie dynamisch aus site.contact/_data/mitglieder.yml
 # erzeugt werden.
-- titel: "Haftungsausschluss (Disclaimer)"
-  icon: "fa-circle-info"
-  inhalt: |
-    <p class="card-text">Quelle: eRecht24.de - Internetrecht von Rechtsanwalt S&ouml;ren Siebert</p>
 - titel: "Haftung f&uuml;r Inhalte"
   icon: "fa-file-circle-exclamation"
   inhalt: |
