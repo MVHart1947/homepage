@@ -131,7 +131,8 @@ p {
 }
 
 // Social-Media-Icons in der linken Footer-Spalte: schlicht statt der
-// umrandeten .fa-btn-Kacheln, nebeneinander.
+// umrandeten .fa-btn-Kacheln. Mobil nebeneinander, ab md übereinander –
+// analog zu den Rechtliches-Links in der rechten Spalte.
 .footer-social {
   display: flex;
   justify-content: center;
@@ -140,6 +141,7 @@ p {
 
 @include media-breakpoint-up(md) {
   .footer-social {
+    flex-direction: column;
     justify-content: flex-start;
   }
 }
