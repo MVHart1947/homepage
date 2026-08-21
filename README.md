@@ -5,7 +5,7 @@ Dies ist die mit Jekyll und Bootstrap entwickelte Website des Musikvereins Hart 
 ## GitHub-Actions-Workflows
 
 - `.github/workflows/pages.yml` – baut die Seite bei jedem Push nach `main`, täglich um 05:00 UTC (damit neue/geänderte Konzertmeister-Termine auch ohne Code-Änderung erscheinen) sowie manuell über `workflow_dispatch`, und deployed sie nach GitHub Pages.
-- `.github/workflows/release.yml` – erstellt bei jedem Push nach `main` automatisch einen Git-Tag + GitHub-Release nach dem Schema `YYYY.M.VERSION` (z. B. `2026.8.1`).
+- `.github/workflows/release.yml` – erstellt bei jedem Push nach `main` automatisch einen Git-Tag + GitHub-Release nach dem Schema `YYYY.MM.VERSION` (z. B. `2026.08.1`), mit Release-Notes aus dem Commit-Log seit dem letzten Tag.
 
 ## Konzertmeister-API (Termine)
 

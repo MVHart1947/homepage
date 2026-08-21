@@ -56,7 +56,7 @@ Bootstrap is pulled in as a Ruby gem (`_sass/` uses `@import`/`@use` against the
 ## CI/CD
 
 - **`.github/workflows/pages.yml`** — on push to `main`, daily at 05:00 UTC (to pick up new Konzertmeister termine without a code change), and manual dispatch: fetches termine, builds with Jekyll, deploys to GitHub Pages.
-- **`.github/workflows/release.yml`** — on every push to `main`, auto-tags and creates a GitHub release using scheme `YYYY.M.VERSION` (e.g. `2026.8.1`), where `VERSION` resets to 1 each calendar month.
+- **`.github/workflows/release.yml`** — on every push to `main`, auto-tags and creates a GitHub release using scheme `YYYY.MM.VERSION` (e.g. `2026.08.1`), where `VERSION` resets to 1 each calendar month. Release notes are built from the commit log since the previous tag (not `gh release create --generate-notes`, which only lists merged PRs and is empty for direct pushes to `main`).
 
 ## Conventions
 
