@@ -9,9 +9,7 @@ header: Unsere aktive Kapelle
 {% for gruppe in site.data.register %}
 <div class="item" id="{{ gruppe.instrument | slugify }}">
   <div class="card">
-    <div class="card-header text-center">
-      <h5 class="card-title mb-0">{{ gruppe.instrument }}</h5>
-    </div>
+    {% include card-header.html titel=gruppe.instrument %}
     <img src="{{ gruppe.bild }}" class="card-img-top" loading="lazy" decoding="async" width="{{ gruppe.breite }}" height="{{ gruppe.hoehe }}">
     <div class="card-body">
       <ul class="list-group list-group-flush">

@@ -12,9 +12,7 @@ header: Impressum
         <div class="pflichtangaben-col">
             <div class="item">
                 <div class="card h-100">
-                    <div class="card-header text-center">
-                        <h5 class="card-title mb-0"><i class="fa-solid fa-address-card"></i> Anschrift</h5>
-                    </div>
+                    {% include card-header.html titel="Anschrift" icon="fa-address-card" %}
                     <div class="card-body">
                         <address class="card-text mb-0">
                             <b>{{ site.contact.organisation }}</b><br>
@@ -29,9 +27,7 @@ header: Impressum
         <div class="pflichtangaben-col">
             <div class="item">
                 <div class="card h-100">
-                    <div class="card-header text-center">
-                        <h5 class="card-title mb-0"><i class="fa-solid fa-user-tie"></i> Vertretungsberechtigte Vorst&auml;nde</h5>
-                    </div>
+                    {% include card-header.html titel="Vertretungsberechtigte Vorst&auml;nde" icon="fa-user-tie" %}
                     <div class="card-body">
                         <p class="card-text mb-0">
                             {% for person in vorsitzende %}{{ person.name }}<br>

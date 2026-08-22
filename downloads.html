@@ -8,17 +8,11 @@ header: Downloads
   {% for download in site.data.downloads %}
   <div class="col">
     <div class="card h-100">
-      <div class="card-header text-center">
-        <h5 class="card-title mb-0"><i class="fa-solid {{ download.icon }}"></i> {{ download.titel }}</h5>
-      </div>
+      {% include card-header.html titel=download.titel icon=download.icon %}
       <div class="card-body">
         <p class="card-text">{{ download.text }}</p>
       </div>
-      <div class="card-footer">
-        <div class="d-grid gap-2">
-            <a href="{{ download.datei }}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download</a>
-        </div>
-      </div>
+      {% include card-footer.html href=download.datei target="_blank" icon="fa-file-arrow-down" text="Download" %}
     </div>
   </div>
   {% endfor %}

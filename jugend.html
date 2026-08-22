@@ -8,9 +8,7 @@ header: Ausbildungskonzept – Nachwuchsförderung
 <div class="row row-cols-1 g-2">
     <div class="col">
         <div class="card">
-            <div class="card-header text-center">
-                <h5 class="card-title mb-0">1. Überblick</h5>
-            </div>
+            {% include card-header.html titel="1. Überblick" %}
             <div class="card-body">
                 <p style="color:FireBrick"><b>Musik macht kreativer und sozial kompetenter, fördert die Konzentrationsfähigkeit und damit das Leistungsvermögen.</b></p>
 
@@ -24,9 +22,7 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
-            <div class="card-header text-center">
-                <h5 class="card-title mb-0">2. Ausbildung</h5>
-            </div>
+            {% include card-header.html titel="2. Ausbildung" %}
             <div class="card-body">
         <p>Nachfolgend eine schematische Darstellung über die verschiedenen Phasen der musikalischen Ausbildung im Musikverein Hart.</p>
         <p>Die angegebenen Altersangaben dienen hier lediglich zur Orientierung!</p>
@@ -63,9 +59,7 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
-            <div class="card-header text-center">
-                <h5 class="card-title mb-0">3. Sonstiges</h5>
-            </div>
+            {% include card-header.html titel="3. Sonstiges" %}
             <div class="card-body">
         <p><strong>Instrumente</strong></p>
         <p>Der Musikverein verfügt über einen begrenzten Bestand an Instrumenten, die wir gegen eine geringe Miete zur Verfügung stellen. Darüber hinaus gibt es auch die Möglichkeit, ein Instrument, das gerade nicht zur Verfügung steht, von einem externen Anbieter zu mieten. Später, wenn ein Ausbildungserfolg absehbar ist, ist auch ein Mietkauf eine Variante, sich ein Instrument zu beschaffen.</p>
@@ -77,19 +71,14 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
-            <div class="card-header text-center">
-                <h5 class="card-title mb-0">4. Ansprechpartner</h5>
-            </div>
+            {% include card-header.html titel="4. Ansprechpartner" %}
             <div class="card-body">
         {% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
         {% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
+        {% capture jugendleitung_href %}mailto:{{ jugendleitung_rolle.email }}{% endcapture %}
         <p class="mb-0">Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung | map: "name" | join: " und " }} unter folgenden Kontaktdaten:</p>
         </div>
-            <div class="card-footer">
-                <div class="d-grid gap-2">
-                    <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung_rolle.email }}</a>
-                </div>
-            </div>
+            {% include card-footer.html href=jugendleitung_href icon="fa-paper-plane" text=jugendleitung_rolle.email %}
         </div>
     </div>
 </div>
