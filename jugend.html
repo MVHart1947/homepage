@@ -4,7 +4,7 @@ title: Jugend
 header: Ausbildungskonzept – Nachwuchsförderung
 ---
 
-<h2>Kinder / Jugendliche / Erwachsene</h2>
+<h5 class="text-center text-muted mb-4">Kinder / Jugendliche / Erwachsene</h5>
 <div class="row row-cols-1 g-2">
     <div class="col">
         <div class="card">
@@ -83,10 +83,13 @@ header: Ausbildungskonzept – Nachwuchsförderung
             <div class="card-body">
         {% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
         {% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
-        <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung | map: "name" | join: " und " }} unter folgenden Kontaktdaten:<br><br>
-        <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung_rolle.email }}</a>
-        </p>
+        <p class="mb-0">Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung | map: "name" | join: " und " }} unter folgenden Kontaktdaten:</p>
         </div>
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> {{ jugendleitung_rolle.email }}</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
