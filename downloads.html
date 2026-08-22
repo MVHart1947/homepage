@@ -5,49 +5,21 @@ header: Downloads
 ---
 
 <div class="row row-cols-1 row-cols-md-3">
+  {% for download in site.data.downloads %}
   <div class="col">
     <div class="card h-100">
       <div class="card-header text-center">
-        <h5 class="card-title mb-0"><i class="fa-solid fa-users"></i> Beitrittserklärung Hauptverein</h5>
+        <h5 class="card-title mb-0"><i class="fa-solid {{ download.icon }}"></i> {{ download.titel }}</h5>
       </div>
       <div class="card-body">
-        <p class="card-text">Falls Sie dem MV Hart beitreten wollen können Sie hier das Beitrittsformular herunterladen und uns per Mail zukommen lassen.</p>
+        <p class="card-text">{{ download.text }}</p>
       </div>
       <div class="card-footer">
         <div class="d-grid gap-2">
-            <a href="/assets/media/documents/Beitrittserklaerung_MV.pdf" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download</a>
+            <a href="{{ download.datei }}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-header text-center">
-        <h5 class="card-title mb-0"><i class="fa-solid fa-hand-holding-heart"></i> Beitrittserklärung Förderverein</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Gerne dürfen Sie auch unserem Förderverein beitreten, damit unterstützen Sie uns auch darin unsere Arbeit im Verein auszuführen.</p>
-      </div>
-      <div class="card-footer">
-        <div class="d-grid gap-2">
-            <a href="/assets/media/documents/Beitrittserklaerung_FV_MV.pdf" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-header text-center">
-        <h5 class="card-title mb-0"><i class="fa-solid fa-receipt"></i> Auslagenersatzformular</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Im Falle aufgekommener Kosten im Dienste des Vereins können Sie mit diesem Formular diese von unserem Kassier wieder erstatten lassen.</p>
-      </div>
-      <div class="card-footer">
-        <div class="d-grid gap-2">
-            <a href="/assets/media/documents/Auslagenersatzformular.pdf" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
