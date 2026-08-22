@@ -1,0 +1,16 @@
+# Karten auf kontakt.html: welche Rolle(n) aus _data/vorstandschaft.yml
+# angezeigt werden (mehrere bei "Vorsitzende", da 1./2. Vorsitzender
+# gemeinsam in einer Karte stehen), mit welchem Icon/Titel, und von welcher
+# Rolle die Kontakt-E-Mail-Adresse kommt. Reihenfolge = Anzeigereihenfolge.
+- titel: Vorsitzende
+  icon: fa-user-tie
+  rollen: [vorsitzender-1, vorsitzender-2]
+  email_rolle: vorsitzender-1
+- titel: Jugendleiter
+  icon: fa-child
+  rollen: [jugendleitung]
+  email_rolle: jugendleitung
+- titel: Schriftführer
+  icon: fa-pen-nib
+  rollen: [schriftfuehrer]
+  email_rolle: schriftfuehrer
