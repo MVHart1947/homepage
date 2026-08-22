@@ -3,66 +3,27 @@ layout: default
 title: Kontakt
 header: Kontakt
 ---
-{% assign vorsitzender_1_rolle = site.data.vorstandschaft | where: "id", "vorsitzender-1" | first %}
-{% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
-{% assign schriftfuehrer_rolle = site.data.vorstandschaft | where: "id", "schriftfuehrer" | first %}
-
-{% assign vorsitzende_1 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-1'" %}
-{% assign vorsitzende_2 = site.data.mitglieder | where_exp: "m", "m.rollen contains 'vorsitzender-2'" %}
-{% assign vorsitzende = vorsitzende_1 | concat: vorsitzende_2 %}
-{% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
-{% assign schriftfuehrerin = site.data.mitglieder | where_exp: "m", "m.rollen contains 'schriftfuehrer'" %}
 <p class="card-text">Sie haben Fragen, m&ouml;chten Mitglied werden oder einfach mit uns in Kontakt treten? Die folgenden Ansprechpartner helfen Ihnen gerne weiter.</p>
 <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for karte in site.data.kontaktkarten %}
+    {% assign email_rolle = site.data.vorstandschaft | where: "id", karte.email_rolle | first %}
+    {% capture email_href %}mailto:{{ email_rolle.email }}{% endcapture %}
+    {% assign traeger = "" | split: "" %}
+    {% for rolle_id in karte.rollen %}
+        {% assign gruppe = site.data.mitglieder | where_exp: "m", "m.rollen contains rolle_id" %}
+        {% assign traeger = traeger | concat: gruppe %}
+    {% endfor %}
     <div class="col">
         <div class="card h-100">
+            {% include card-header.html titel=karte.titel icon=karte.icon %}
             <div class="card-body d-flex flex-column">
-                <h3 class="card-title"><i class="fa-solid fa-user-tie"></i> Vorsitzende</h3>
-                <hr>
                 <div class="flex-grow-1 d-flex flex-column justify-content-evenly text-center">
-                    {% for person in vorsitzende %}<span>{{ person.name }}</span>
+                    {% for person in traeger %}<span>{{ person.name }}</span>
                     {% endfor %}
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="d-grid gap-2">
-                    <a href="mailto:{{ vorsitzender_1_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
-                </div>
-            </div>
+            {% include card-footer.html href=email_href icon="fa-paper-plane" text="E-Mail senden" %}
         </div>
     </div>
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body d-flex flex-column">
-                <h3 class="card-title"><i class="fa-solid fa-child"></i> Jugendleiter</h3>
-                <hr>
-                <div class="flex-grow-1 d-flex flex-column justify-content-evenly text-center">
-                    {% for person in jugendleitung %}<span>{{ person.name }}</span>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="d-grid gap-2">
-                    <a href="mailto:{{ jugendleitung_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body d-flex flex-column">
-                <h3 class="card-title"><i class="fa-solid fa-pen-nib"></i> Schriftf&uuml;hrer</h3>
-                <hr>
-                <div class="flex-grow-1 d-flex flex-column justify-content-evenly text-center">
-                    {% for person in schriftfuehrerin %}<span>{{ person.name }}</span>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="d-grid gap-2">
-                    <a href="mailto:{{ schriftfuehrer_rolle.email }}" class="btn btn-outline-secondary"><i class="fa-solid fa-paper-plane"></i> E-Mail senden</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>

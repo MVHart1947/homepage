@@ -1,8 +1,7 @@
 <div class="item">
     <div class="card">
+        {% include card-header.html titel=include.abschnitt.titel icon=include.abschnitt.icon %}
         <div class="card-body">
-            <h3 class="card-title"><i class="fa-solid {{ include.abschnitt.icon }}"></i> {{ include.abschnitt.titel }}</h3>
-            <hr>
             {{ include.abschnitt.inhalt }}
         </div>
     </div>

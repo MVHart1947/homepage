@@ -1,0 +1,14 @@
+# Karten auf downloads.html: Icon, Titel, Beschreibungstext und Pfad zur
+# PDF-Datei unter assets/media/documents/. Reihenfolge = Anzeigereihenfolge.
+- icon: fa-users
+  titel: Beitrittserklärung Hauptverein
+  text: Falls Sie dem MV Hart beitreten wollen können Sie hier das Beitrittsformular herunterladen und uns per Mail zukommen lassen.
+  datei: /assets/media/documents/Beitrittserklaerung_MV.pdf
+- icon: fa-hand-holding-heart
+  titel: Beitrittserklärung Förderverein
+  text: Gerne dürfen Sie auch unserem Förderverein beitreten, damit unterstützen Sie uns auch darin unsere Arbeit im Verein auszuführen.
+  datei: /assets/media/documents/Beitrittserklaerung_FV_MV.pdf
+- icon: fa-receipt
+  titel: Auslagenersatzformular
+  text: Im Falle aufgekommener Kosten im Dienste des Vereins können Sie mit diesem Formular diese von unserem Kassier wieder erstatten lassen.
+  datei: /assets/media/documents/Auslagenersatzformular.pdf
