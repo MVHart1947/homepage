@@ -8,9 +8,10 @@ header: Ausbildungskonzept – Nachwuchsförderung
 <div class="row row-cols-1 g-2">
     <div class="col">
         <div class="card">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0">1. Überblick</h5>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">1. Überblick</h5>
-                <hr>
                 <p style="color:FireBrick"><b>Musik macht kreativer und sozial kompetenter, fördert die Konzentrationsfähigkeit und damit das Leistungsvermögen.</b></p>
 
                 <p><strong>Konzentration:</strong> Wenn Kinder musizieren, müssen sie mehrere Aufgaben bewältigen und zugleich ihre Aufmerksamkeit bündeln: Das Auge liest Noten, das Gehirn verarbeitet die Informationen, die Hände setzen alles am Instrument um. Diese kompakten Übungen steigern die Konzentrationsfähigkeit. </p>
@@ -23,9 +24,10 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0">2. Ausbildung</h5>
+            </div>
             <div class="card-body">
-        <h5 class="card-title">2. Ausbildung</h5>
-        <hr>
         <p>Nachfolgend eine schematische Darstellung über die verschiedenen Phasen der musikalischen Ausbildung im Musikverein Hart.</p>
         <p>Die angegebenen Altersangaben dienen hier lediglich zur Orientierung!</p>
         <img class="img-thumbnail" src="assets/media/Jugend.jpg" loading="lazy" decoding="async" width="454" height="255"><br><br>
@@ -61,9 +63,10 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0">3. Sonstiges</h5>
+            </div>
             <div class="card-body">
-        <h5 class="card-title">3. Sonstiges</h5>
-        <hr>
         <p><strong>Instrumente</strong></p>
         <p>Der Musikverein verfügt über einen begrenzten Bestand an Instrumenten, die wir gegen eine geringe Miete zur Verfügung stellen. Darüber hinaus gibt es auch die Möglichkeit, ein Instrument, das gerade nicht zur Verfügung steht, von einem externen Anbieter zu mieten. Später, wenn ein Ausbildungserfolg absehbar ist, ist auch ein Mietkauf eine Variante, sich ein Instrument zu beschaffen.</p>
         
@@ -74,9 +77,10 @@ header: Ausbildungskonzept – Nachwuchsförderung
     </div>
     <div class="col">
         <div class="card">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0">4. Ansprechpartner</h5>
+            </div>
             <div class="card-body">
-        <h5 class="card-title">4. Ansprechpartner</h5>
-        <hr>
         {% assign jugendleitung_rolle = site.data.vorstandschaft | where: "id", "jugendleitung" | first %}
         {% assign jugendleitung = site.data.mitglieder | where_exp: "m", "m.rollen contains 'jugendleitung'" %}
         <p>Sollten Sie noch Fragen zu unserem Ausbildungskonzept haben, wenden Sie sich bitte jederzeit an unsere Jugendleiterinnen {{ jugendleitung | map: "name" | join: " und " }} unter folgenden Kontaktdaten:<br><br>

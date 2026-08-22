@@ -5,9 +5,10 @@ header: Historie
 ---
 {% assign vereinsgeschichte = site.data.historie | first %}
 <div class="card mb-2">
+    <div class="card-header text-center">
+        <h5 class="card-title mb-0"><i class="fa-solid {{ vereinsgeschichte.icon }}"></i> {{ vereinsgeschichte.titel }}</h5>
+    </div>
     <div class="card-body">
-        <h5 class="card-title"><i class="fa-solid {{ vereinsgeschichte.icon }}"></i> {{ vereinsgeschichte.titel }}</h5>
-        <hr>
         {{ vereinsgeschichte.inhalt }}
     </div>
 </div>
@@ -16,9 +17,10 @@ header: Historie
     {% for abschnitt in site.data.historie offset:1 %}
     <div class="col">
         <div class="card h-100">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0"><i class="fa-solid {{ abschnitt.icon }}"></i> {{ abschnitt.titel }}</h5>
+            </div>
             <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid {{ abschnitt.icon }}"></i> {{ abschnitt.titel }}</h5>
-                <hr>
                 {{ abschnitt.inhalt }}
             </div>
         </div>
