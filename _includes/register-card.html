@@ -2,7 +2,7 @@
   <div class="card">
     <img src="{{ include.gruppe.bild }}" class="card-img-top" loading="lazy" decoding="async" width="{{ include.gruppe.breite }}" height="{{ include.gruppe.hoehe }}">
     <div class="card-body">
-      <h3 class="card-title">{{ include.gruppe.instrument }}</h3>
+      <h5 class="card-title">{{ include.gruppe.instrument }}</h5>
       <ul class="list-group list-group-flush">
         {% assign mitglieder = site.data.mitglieder | where: "register", include.gruppe.instrument %}
         {% for person in mitglieder %}<li class="list-group-item">{{ person.name }}</li>
