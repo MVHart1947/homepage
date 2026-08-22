@@ -136,19 +136,28 @@ p {
 .footer-social {
   display: flex;
   justify-content: center;
-  gap: .75rem;
+  gap: 1.5rem;
 }
 
 @include media-breakpoint-up(md) {
   .footer-social {
     flex-direction: column;
     justify-content: space-between;
+    gap: .75rem;
   }
 }
 
+// Mobil größere Touch-Targets (min. 44px empfohlen); ab md wieder kleiner,
+// da dort die Maus statt des Fingers zielt.
 .footer-social-link {
   color: $secondary;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
+}
+
+@include media-breakpoint-up(md) {
+  .footer-social-link {
+    font-size: 1.75rem;
+  }
 }
 
 .footer-social-link:hover {
